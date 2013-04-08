@@ -1,0 +1,42 @@
+08.04.2013
+
+Hice unas reformas a la estructura de CakePHP. 
+
+1) en primer lugar saque app/webroot/ y lo puse en el root del sitio. Como podes ver, ahora tenes las carpetas de imagenes, css y js en el root del sitio.
+Esto fue para cumplir con la especificacion de estructura del sitio descripta en los requerimientos que me pasaste. El punto 2 tambien forma parte de las 
+reformas para cumplir con estos requerimientos.
+
+2) a los demas archivos de CakePHP los meti en la carpeta lib/ del root. Esta es una carpeta nueva que yo cree.
+
+3) a la carpeta app de CakePHP la renombre abismoApp/
+
+4) a la carpeta Cake/ la saque de lib/, la meti en vendors/ y borre lib/. Me reventaba tener 2 carpetas lib/ por eso lo hice.
+
+5) todas las modificaciones de paths las hice en el index.php del root del sitio.
+
+
+Virtual host del sitio. Ejemplo de configuracion...
+
+NO APUNTAR EL DOCUMENTROOT A webroot/, APUNTARLO AL ROOT DEL SITIO
+
+<VirtualHost *:80>
+	ServerAdmin diegoangel77@gmail.com
+	ServerName abismo.lc
+	ServerAlias www.abismo.lc
+	DocumentRoot /home/diego/Public/test/abismo
+
+	<Directory /home/diego/Public/test/abismo>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride All 
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/abismo_error.log
+
+	LogLevel warn
+
+	CustomLog ${APACHE_LOG_DIR}/abismo_access.log combined
+</VirtualHost>
+
+--------------------------------------------------
