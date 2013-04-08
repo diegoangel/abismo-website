@@ -2,7 +2,7 @@
 
 Hice unas reformas a la estructura de CakePHP. 
 
-1) en primer lugar saque app/webroot/ y lo puse en el root del sitio. Como podes ver, ahora tenes las carpetas de imagenes, css y js en el root del sitio.
+1) en primer lugar saque el contenido de app/webroot/ y lo puse en el root del sitio. Como podes ver, ahora tenes las carpetas de imagenes, css y js en el root del sitio.
 Esto fue para cumplir con la especificacion de estructura del sitio descripta en los requerimientos que me pasaste. El punto 2 tambien forma parte de las 
 reformas para cumplir con estos requerimientos.
 
