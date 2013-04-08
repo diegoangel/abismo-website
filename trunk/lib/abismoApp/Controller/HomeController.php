@@ -46,12 +46,11 @@ class HomeController extends AppController {
     public $uses = array();
 
 /**
- * Displays a view
+ * Home view
  *
- * @param mixed What page to display
  * @return void
  */
-    public function display() {
+    public function view() {
         $path = func_get_args();
 
         $count = count($path);

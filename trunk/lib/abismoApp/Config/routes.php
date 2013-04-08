@@ -21,17 +21,21 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-/**
- * Here, we are connecting '/' (base path) to controller called 'Pages',
- * its action called 'display', and we pass a param to select the view file
- * to use (in this case, /app/View/Pages/home.ctp)...
- */
-    Router::connect('/', array('controller' => 'home', 'action' => 'display', 'home'));
-/**
- * ...and connect the rest of 'Pages' controller's urls.
- */
-    Router::connect('/home/*', array('controller' => 'home', 'action' => 'display'));
 
+    Router::connect('/', array('controller' => 'home', 'action' => 'view', 'home'));
+    Router::connect('/home/*', array('controller' => 'home', 'action' => 'view'));
+    
+    Router::connect('/proyectos/:action/*', array('controller'=>'projects'));
+    Router::connect('/proyectos/*', array('controller'=>'projects'));
+
+    Router::connect('/concursos/:action/*', array('controller'=>'tenders'));
+    Router::connect('/concursos/*', array('controller'=>'tenders'));
+    
+    Router::connect('/estudio/:action/*', array('controller'=>'studio'));
+    Router::connect('/estudio/*', array('controller'=>'studio'));
+    
+    Router::connect('/contacto/:action/*', array('controller'=>'contact'));
+    Router::connect('/contacto/*', array('controller'=>'contact'));        
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.
