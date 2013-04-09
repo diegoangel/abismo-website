@@ -72,7 +72,7 @@ class FancyboxHelper extends AppHelper {
 		$this->options = array();
 	}
 	
-	public function output()
+	public function output($str = '')
 	{
 		extract($this->options);
 

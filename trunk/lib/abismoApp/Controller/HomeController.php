@@ -32,18 +32,10 @@ App::uses('AppController', 'Controller');
 class HomeController extends AppController {
 
 /**
- * Controller name
- *
- * @var string
- */
-    public $name = 'Home';
-
-/**
- * This controller does not use a model
  *
  * @var array
  */
-    public $uses = array();
+    public $uses = array('project');
 
 /**
  * Home view

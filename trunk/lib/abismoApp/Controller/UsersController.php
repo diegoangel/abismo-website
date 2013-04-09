@@ -1,11 +1,14 @@
 <?php
+
 App::uses('AppController', 'Controller');
+App::uses('AdminController', 'Controller');
+
 /**
  * Users Controller
  *
  * @property User $User
  */
-class UsersController extends AppController {
+class UsersController extends AdminController {
 
 /**
  * admin_index method

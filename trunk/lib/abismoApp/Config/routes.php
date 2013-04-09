@@ -36,6 +36,7 @@
     
     Router::connect('/contacto/:action/*', array('controller'=>'contact'));
     Router::connect('/contacto/*', array('controller'=>'contact'));        
+        
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

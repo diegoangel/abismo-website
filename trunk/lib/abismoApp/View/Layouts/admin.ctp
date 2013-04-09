@@ -31,7 +31,7 @@
         <?php echo $this->Html->meta('icon'); ?>
         <?php echo $this->fetch('meta'); ?>
         <?php echo $this->fetch('css');  ?>    
-        <?php echo $this->Html->script('jquery-1.8.3.min.js');  ?> 
+        <?php echo $this->Html->script('jquery-1.9.1.min.js');  ?> 
         <?php echo $this->fetch('script');  ?>      
         <?php echo $this->Html->script('lib/tinymce/jquery.tinymce.js'); ?>     
         <?php echo $this->Html->script('lib/tinymce/tiny_mce.js'); ?>                
@@ -70,7 +70,7 @@
             </div>
             <hr>
             <div class="row-fluid">
-                <?php echo str_replace('class="cake-sql-log"', 'class="table table-bordered table-striped"', $this->element('sql_dump')); ?>
+                <?php //echo str_replace('class="cake-sql-log"', 'class="table table-bordered table-striped"', $this->element('sql_dump')); ?>
             </div>
         </div>
     </body>

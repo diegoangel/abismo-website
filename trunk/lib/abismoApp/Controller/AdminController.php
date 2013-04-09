@@ -12,6 +12,7 @@ class AdminController extends Controller {
      * @var array
      */
     var $components = array(
+        'DebugKit.Toolbar',
         'RequestHandler',
         'Session',
         'Auth' => array(
