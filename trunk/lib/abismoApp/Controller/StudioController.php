@@ -29,14 +29,7 @@ App::uses('AppController', 'Controller');
  * @package       app.Controller
  * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
  */
-class HomeController extends AppController {
-
-/**
- * Controller name
- *
- * @var string
- */
-    public $name = 'Home';
+class StudioController extends AppController {
 
 /**
  * This controller does not use a model
@@ -46,12 +39,11 @@ class HomeController extends AppController {
     public $uses = array();
 
 /**
- * Displays a view
  *
  * @param mixed What page to display
  * @return void
  */
-    public function display() {
+    public function index() {
         $path = func_get_args();
 
         $count = count($path);

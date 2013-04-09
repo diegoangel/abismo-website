@@ -31,13 +31,38 @@ class ProjectsController extends AppController {
         $options = array('conditions' => array('Project.' . $this->Project->primaryKey => $id));
         $this->set('project', $this->Project->find('first', $options));
     }
+    
+/**
+ * index method
+ *
+ * @return void
+ */
+    public function admin_index() {
+        $this->Project->recursive = 0;
+        $this->set('projects', $this->paginate());
+    }
+
+/**
+ * view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+    public function admin_view($id = null) {
+        if (!$this->Project->exists($id)) {
+            throw new NotFoundException(__('Invalid project'));
+        }
+        $options = array('conditions' => array('Project.' . $this->Project->primaryKey => $id));
+        $this->set('project', $this->Project->find('first', $options));
+    }    
 
 /**
  * add method
  *
  * @return void
  */
-    public function add() {
+    public function admin_add() {
         if ($this->request->is('post')) {
             $this->Project->create();
             if ($this->Project->save($this->request->data)) {
@@ -59,7 +84,7 @@ class ProjectsController extends AppController {
  * @param string $id
  * @return void
  */
-    public function edit($id = null) {
+    public function admin_edit($id = null) {
         if (!$this->Project->exists($id)) {
             throw new NotFoundException(__('Invalid project'));
         }
@@ -87,7 +112,7 @@ class ProjectsController extends AppController {
  * @param string $id
  * @return void
  */
-    public function delete($id = null) {
+    public function admin_delete($id = null) {
         $this->Project->id = $id;
         if (!$this->Project->exists()) {
             throw new NotFoundException(__('Invalid project'));
