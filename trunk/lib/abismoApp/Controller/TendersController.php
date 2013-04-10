@@ -1,11 +1,11 @@
 <?php
-App::uses('AppController', 'Controller');
+App::uses('AdminController', 'Controller');
 /**
  * Tenders Controller
  *
  * @property Tender $Tender
  */
-class TendersController extends AppController {
+class TendersController extends AdminController {
 
 /**
  * index method
