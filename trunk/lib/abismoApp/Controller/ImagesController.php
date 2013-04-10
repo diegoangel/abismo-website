@@ -1,11 +1,11 @@
 <?php
-App::uses('AppController', 'Controller');
+App::uses('AdminController', 'Controller');
 /**
  * Images Controller
  *
  * @property Image $Image
  */
-class ImagesController extends AppController {
+class ImagesController extends AdminController {
 
 /**
  * admin_index method

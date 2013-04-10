@@ -1,11 +1,11 @@
 <?php
-App::uses('AppController', 'Controller');
+App::uses('AdminController', 'Controller');
 /**
  * Projects Controller
  *
  * @property Project $Project
  */
-class ProjectsController extends AppController {
+class ProjectsController extends AdminController {
 
 /**
  * index method

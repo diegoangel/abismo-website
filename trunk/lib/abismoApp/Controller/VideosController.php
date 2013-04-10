@@ -1,11 +1,11 @@
 <?php
-App::uses('AppController', 'Controller');
+App::uses('AdminController', 'Controller');
 /**
  * Videos Controller
  *
  * @property Video $Video
  */
-class VideosController extends AppController {
+class VideosController extends AdminController {
 
 /**
  * view method

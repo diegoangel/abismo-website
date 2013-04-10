@@ -21,13 +21,7 @@
         <thead>
             <tr>
                 <th><?php echo $this->Paginator->sort('id'); ?></th>
-                <th><?php echo $this->Paginator->sort('image_id'); ?></th>
-                <th><?php echo $this->Paginator->sort('video_id'); ?></th>
                 <th><?php echo $this->Paginator->sort('title'); ?></th>
-                <th><?php echo $this->Paginator->sort('subtitle'); ?></th>
-                <th><?php echo $this->Paginator->sort('headline'); ?></th>
-                <th><?php echo $this->Paginator->sort('description'); ?></th>
-                <th><?php echo $this->Paginator->sort('proposal'); ?></th>
                 <th><?php echo $this->Paginator->sort('show_in_home'); ?></th>
                 <th><?php echo $this->Paginator->sort('featured'); ?></th>
                 <th><?php echo $this->Paginator->sort('active'); ?></th>
@@ -40,17 +34,7 @@
         <?php foreach ($tenders as $tender): ?>
             <tr>
                 <td><?php echo h($tender['Tender']['id']); ?>&nbsp;</td>
-                <td>
-                    <?php echo $this->Html->link($tender['Image']['id'], array('controller' => 'images', 'action' => 'view', $tender['Image']['id'])); ?>
-                </td>
-                <td>
-                    <?php echo $this->Html->link($tender['Video']['id'], array('controller' => 'videos', 'action' => 'view', $tender['Video']['id'])); ?>
-                </td>
                 <td><?php echo h($tender['Tender']['title']); ?>&nbsp;</td>
-                <td><?php echo h($tender['Tender']['subtitle']); ?>&nbsp;</td>
-                <td><?php echo h($tender['Tender']['headline']); ?>&nbsp;</td>
-                <td><?php echo h($tender['Tender']['description']); ?>&nbsp;</td>
-                <td><?php echo h($tender['Tender']['proposal']); ?>&nbsp;</td>
                 <td><?php echo h($tender['Tender']['show_in_home']); ?>&nbsp;</td>
                 <td><?php echo h($tender['Tender']['featured']); ?>&nbsp;</td>
                 <td><?php echo h($tender['Tender']['active']); ?>&nbsp;</td>

@@ -23,26 +23,26 @@
                 <th colspan="3"><?php echo __('Actions'); ?></th>
             </tr>
         </thead>
-    <tbody>    
-    <?php
-    foreach ($users as $user): ?>
-        <tr>
-            <td><?php echo h($user['User']['username']); ?>&nbsp;</td>
-            <td><?php echo (h($user['User']['is_admin'])) ? 'si' : 'no'; ?>&nbsp;</td>
-            <td><?php echo (h($user['User']['is_active'])) ? 'si' : 'no'; ?>&nbsp;</td>
-            <td><?php echo h($user['User']['created']); ?>&nbsp;</td>
-            <td><?php echo h($user['User']['modified']); ?>&nbsp;</td>
-            <td>
-                <?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-info')); ?>
+        <tbody>    
+        <?php
+        foreach ($users as $user): ?>
+            <tr>
+                <td><?php echo h($user['User']['username']); ?>&nbsp;</td>
+                <td><?php echo (h($user['User']['is_admin'])) ? 'si' : 'no'; ?>&nbsp;</td>
+                <td><?php echo (h($user['User']['is_active'])) ? 'si' : 'no'; ?>&nbsp;</td>
+                <td><?php echo h($user['User']['created']); ?>&nbsp;</td>
+                <td><?php echo h($user['User']['modified']); ?>&nbsp;</td>
+                <td>
+                    <?php echo $this->Html->link(__('View'), array('action' => 'view', $user['User']['id']), array('class' => 'btn btn-info')); ?>
                 </td>
                 <td>
-                
-                <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-warning')); ?></td>
+                    <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id']), array('class' => 'btn btn-warning')); ?>
+                </td>
                 <td>
-                <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?>
-            </td>
-        </tr>
-<?php endforeach; ?>
+                    <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $user['User']['id']), array('class' => 'btn btn-danger'), __('Are you sure you want to delete # %s?', $user['User']['id'])); ?>
+                </td>
+            </tr>
+        <?php endforeach; ?>
         </tbody>
     </table>
      <div class="well">

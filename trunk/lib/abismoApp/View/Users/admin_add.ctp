@@ -12,7 +12,7 @@
     <?php echo $this->Session->flash(); ?>
 <?php echo $this->Form->create('User'); ?>
     <fieldset>
-        <legend><?php echo __('Admin Nuevo Usuario'); ?></legend>
+        <legend><?php echo __('Nuevo Usuario'); ?></legend>
     <?php
         echo $this->Form->input('username', array('autocomplete'=>'off', 'label' => 'Nombre de Usuario'));
         echo $this->Form->input('passwd', array('autocomplete'=>'off', 'label' => 'Contrase&ntilde;a'));
