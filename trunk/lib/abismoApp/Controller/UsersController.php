@@ -1,8 +1,5 @@
 <?php
-
-App::uses('AppController', 'Controller');
 App::uses('AdminController', 'Controller');
-
 /**
  * Users Controller
  *
