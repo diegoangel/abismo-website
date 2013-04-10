@@ -75,6 +75,7 @@ Cache::config('default', array('engine' => 'File'));
 CakePlugin::load('DebugKit');
 CakePlugin::load('Fancybox');
 CakePlugin::load('Uploader');
+CakePlugin::load('Localized');
 
 /**
  * You can attach event listeners to the request lifecyle as Dispatcher Filter . By Default CakePHP bundles two filters:

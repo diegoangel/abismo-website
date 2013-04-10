@@ -24,7 +24,6 @@
         echo $this->Form->input('headline');
         echo $this->Form->input('description');
         echo $this->Form->input('proposal');
-        echo $this->Form->input('show_in_home');
         echo $this->Form->input('featured');
         echo $this->Form->input('active');
     ?>
@@ -32,3 +31,14 @@
 <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 
+<script type="text/javascript">
+tinyMCE.init({
+        // General options
+        mode : "textareas",
+        theme : "advanced",
+        language : "es",
+       width : "640",
+        height: "380",        
+        convert_urls : false 
+});
+</script> 

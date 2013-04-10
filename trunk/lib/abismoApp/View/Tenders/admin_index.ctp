@@ -22,7 +22,6 @@
             <tr>
                 <th><?php echo $this->Paginator->sort('id'); ?></th>
                 <th><?php echo $this->Paginator->sort('title'); ?></th>
-                <th><?php echo $this->Paginator->sort('show_in_home'); ?></th>
                 <th><?php echo $this->Paginator->sort('featured'); ?></th>
                 <th><?php echo $this->Paginator->sort('active'); ?></th>
                 <th><?php echo $this->Paginator->sort('created'); ?></th>
@@ -35,7 +34,6 @@
             <tr>
                 <td><?php echo h($tender['Tender']['id']); ?>&nbsp;</td>
                 <td><?php echo h($tender['Tender']['title']); ?>&nbsp;</td>
-                <td><?php echo h($tender['Tender']['show_in_home']); ?>&nbsp;</td>
                 <td><?php echo h($tender['Tender']['featured']); ?>&nbsp;</td>
                 <td><?php echo h($tender['Tender']['active']); ?>&nbsp;</td>
                 <td><?php echo h($tender['Tender']['created']); ?>&nbsp;</td>

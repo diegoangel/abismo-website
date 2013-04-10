@@ -21,6 +21,17 @@
  */
 
 /**
+ * CakePHP enviroment mode
+ * 
+ * Suggested enviroments
+ * 1. production (Production mode)
+ * 2. staging (Staging or Preproduction mode)
+ * 3. development (Development mode)
+ */ 
+ 
+    define('ENVIROMENT', 'development');
+
+/**
  * CakePHP Debug Level:
  *
  * Production Mode:
