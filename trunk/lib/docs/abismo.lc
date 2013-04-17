@@ -2,10 +2,8 @@
 	ServerAdmin diegoangel77@gmail.com
 	ServerName abismo.lc
 	ServerAlias www.abismo.lc
-	#DocumentRoot /home/diego/Public/test/abismo/lib/app/webroot
 	DocumentRoot /home/diego/Public/test/abismo
 
-	#<Directory /home/diego/Public/test/abismo/lib/app/webroot>
 	<Directory /home/diego/Public/test/abismo>
 		Options Indexes FollowSymLinks MultiViews
 		AllowOverride All 
