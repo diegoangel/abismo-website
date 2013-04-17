@@ -1,6 +1,0 @@
-/* TEAM */
-Developer: Leandro Barattucci.
-Location: Buenos Aires, Argentina.
-
-Developer: Diego Rivarola.
-Location: Buenos Aires, Argentina.
