@@ -15,6 +15,7 @@ class ImageTest extends CakeTestCase {
 	public $fixtures = array(
 		'app.image',
 		'app.project',
+		'app.video',
 		'app.tender'
 	);
 
