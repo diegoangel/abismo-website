@@ -25,17 +25,15 @@
     Router::connect('/', array('controller' => 'home', 'action' => 'view', 'home'));
     Router::connect('/home/*', array('controller' => 'home', 'action' => 'view'));
     
-    Router::connect('/proyectos/:action/*', array('controller'=>'projects'));
-    Router::connect('/proyectos/*', array('controller'=>'projects'));
+    //Router::connect('/proyectos/:action/*', array('controller'=>'projects'));
+    Router::connect('/proyectos', array('controller'=>'projects', 'action' => 'index'));
+    Router::connect('/proyectos/detalle/*', array('controller'=>'projects', 'action' => 'view'));    
 
-    Router::connect('/concursos/:action/*', array('controller'=>'tenders'));
-    Router::connect('/concursos/*', array('controller'=>'tenders'));
+    //Router::connect('/concursos/:action/*', array('controller'=>'tenders'));
+    Router::connect('/concursos', array('controller'=>'tenders', 'action' => 'index'));
+    Router::connect('/concursos/detalle/*', array('controller'=>'tenders', 'action' => 'view'));
     
-    Router::connect('/estudio/:action/*', array('controller'=>'studio'));
-    Router::connect('/estudio/*', array('controller'=>'studio'));
-    
-    Router::connect('/contacto/:action/*', array('controller'=>'contact'));
-    Router::connect('/contacto/*', array('controller'=>'contact'));        
+    Router::connect('/estudio', array('controller'=>'studio', 'action' => 'index', 'index'));       
         
 /**
  * Load all plugin routes. See the CakePlugin documentation on

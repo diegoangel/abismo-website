@@ -23,14 +23,11 @@
 /**
  * CakePHP enviroment mode
  * 
- * Suggested enviroments
- * 1. production (Production mode)
- * 2. staging (Staging or Preproduction mode)
- * 3. development (Development mode)
  */ 
- 
-    define('ENVIROMENT', 'development');
-
+    $isCLI = ( php_sapi_name() == 'cli' );
+    if (!$isCLI) {
+        define('IN_PRODUCTION', $_SERVER['SERVER_ADDR'] !== '127.0.0.1');
+    }
 /**
  * CakePHP Debug Level:
  *
