@@ -1,37 +1,104 @@
 <?php
-/**
- * Application level Controller
- *
- * This file is application-wide controller file. You can put all
- * application-wide controller-related methods here.
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.Controller
- * @since         CakePHP(tm) v 0.2.9
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-App::uses('Controller', 'Controller');
 
-/**
- * Application Controller
- *
- * Add your application-wide methods in the class below, your controllers
- * will inherit them.
- *
- * @package     app.Controller
- * @link        http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
- */
+App::uses('Controller', 'Controller');
+App::uses('Folder', 'Utility');
+App::uses('CakeLog', 'Log');
+
 class AppController extends Controller {
-    
-    public $components = array('DebugKit.Toolbar');
+
+    /**
+     * Components
+     *
+     * @var array
+     */
+    var $components = array(
+        'DebugKit.Toolbar',
+        'RequestHandler',
+        'Session',
+        'Auth' => array(
+            'loginAction' => array(
+                'controller' => 'users',
+                'action' => 'login',
+                'admin' => true
+            ),
+            'logoutRedirect' => array(
+                'controller' => 'home',
+                'action' => 'index',
+                'admin' => false
+            ),
+            'loginRedirect' => array(
+                'controller' => 'admin',
+                'action' => 'index',
+                'admin' => true
+            ),
+            'autoRedirect' => false,
+            'authError' => 'No tiene permisos para acceder a la pagina',            
+            'authorize' => array('Controller')
+        )
+    );
+    var $helpers = array(
+        'Form' => array(
+            'className' => 'BootstrapForm'
+        ),
+
+        'Session' => array(
+            'className' => 'BootstrapSession'
+        ),
+        'Paginator' => array(
+            'className' => 'BootstrapPaginator'
+        ),
+        'Html', 
+        'Fancybox.Fancybox'
+    );
+
+    function isAuthorized() {
+        if (!empty($this->params['prefix']) && $this->params['prefix'] == 'admin') {
+            if ($this->Auth->user('is_admin') != true) {
+                return false;
+            }
+        }
+        
+        if (empty($this->params['prefix'])) {
+            return true;
+        }
+             
+        return true;
+    }
+
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+        $Folder = new Folder(APP . 'Model');
+        $files = $Folder->find('.*', true);
+        $navbar = array();
+        foreach ($files as $file) {
+            if ($file !== 'AppModel.php') {
+                $model = str_replace('.php', '', $file);
+                $controller = Inflector::tableize($model);
+                $title = Inflector::pluralize($model);
+                $navbar[] = array(
+                    'title' => $title,
+                    'url' => array(
+                        'controller' => $controller,
+                        'action' => 'index'
+                    )
+                );
+            }
+        }
+
+        $this->set(compact('navbar'));
+    }
+/**
+ * Redirige al dashboard si se ingresa a la url /admin
+ * 
+ * @return void
+ */ 
+    public function index() {
+        $this->redirect(array(
+            'controller' => 'dashboard', 
+            'action' => 'index', 
+            'admin' => true
+        ));
+    }
+
 }

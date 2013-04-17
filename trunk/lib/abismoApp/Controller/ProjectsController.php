@@ -1,12 +1,18 @@
 <?php
-App::uses('AdminController', 'Controller');
+App::uses('AppController', 'Controller');
 /**
  * Projects Controller
  *
  * @property Project $Project
  */
-class ProjectsController extends AdminController {
+class ProjectsController extends AppController {
+    
+    public function beforeFilter() {
 
+        parent::beforeFilter();
+        $this->Auth->allow('index', 'view');
+    }
+    
 /**
  * index method
  *
@@ -38,6 +44,7 @@ class ProjectsController extends AdminController {
  * @return void
  */
     public function admin_index() {
+        $this->layout = 'admin';
         $this->Project->recursive = 0;
         $this->set('projects', $this->paginate());
     }
@@ -50,6 +57,7 @@ class ProjectsController extends AdminController {
  * @return void
  */
     public function admin_view($id = null) {
+        $this->layout = 'admin';        
         if (!$this->Project->exists($id)) {
             throw new NotFoundException(__('Invalid project'));
         }
@@ -63,6 +71,7 @@ class ProjectsController extends AdminController {
  * @return void
  */
     public function admin_add() {
+        $this->layout = 'admin';        
         if ($this->request->is('post')) {
             $this->Project->create();
             if ($this->Project->save($this->request->data)) {
@@ -85,6 +94,7 @@ class ProjectsController extends AdminController {
  * @return void
  */
     public function admin_edit($id = null) {
+        $this->layout = 'admin';        
         if (!$this->Project->exists($id)) {
             throw new NotFoundException(__('Invalid project'));
         }
@@ -113,6 +123,7 @@ class ProjectsController extends AdminController {
  * @return void
  */
     public function admin_delete($id = null) {
+        $this->layout = 'admin';        
         $this->Project->id = $id;
         if (!$this->Project->exists()) {
             throw new NotFoundException(__('Invalid project'));

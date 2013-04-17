@@ -1,12 +1,18 @@
 <?php
-App::uses('AdminController', 'Controller');
+App::uses('AppController', 'Controller');
 /**
  * Tenders Controller
  *
  * @property Tender $Tender
  */
-class TendersController extends AdminController {
+class TendersController extends AppController {
 
+    public function beforeFilter() {
+
+        parent::beforeFilter();
+        $this->Auth->allow('index', 'view');
+    }
+    
 /**
  * index method
  *
@@ -38,6 +44,7 @@ class TendersController extends AdminController {
  * @return void
  */
     public function admin_index() {
+        $this->layout = 'admin';        
         $this->Tender->recursive = 0;
         $this->set('tenders', $this->paginate());
     }
@@ -50,6 +57,7 @@ class TendersController extends AdminController {
  * @return void
  */
     public function admin_view($id = null) {
+        $this->layout = 'admin';         
         if (!$this->Tender->exists($id)) {
             throw new NotFoundException(__('Invalid tender'));
         }
@@ -63,6 +71,7 @@ class TendersController extends AdminController {
  * @return void
  */
     public function admin_add() {
+        $this->layout = 'admin';         
         if ($this->request->is('post')) {
             $this->Tender->create();
             if ($this->Tender->save($this->request->data)) {
@@ -85,6 +94,7 @@ class TendersController extends AdminController {
  * @return void
  */
     public function admin_edit($id = null) {
+        $this->layout = 'admin';         
         if (!$this->Tender->exists($id)) {
             throw new NotFoundException(__('Invalid tender'));
         }
@@ -113,6 +123,7 @@ class TendersController extends AdminController {
  * @return void
  */
     public function admin_delete($id = null) {
+        $this->layout = 'admin';         
         $this->Tender->id = $id;
         if (!$this->Tender->exists()) {
             throw new NotFoundException(__('Invalid tender'));

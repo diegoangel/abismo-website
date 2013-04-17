@@ -1,26 +1,13 @@
 <?php
-App::uses('AdminController', 'Controller');
+App::uses('AppController', 'Controller');
 /**
  * Videos Controller
  *
  * @property Video $Video
  */
-class VideosController extends AdminController {
+class VideosController extends AppController {
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-    public function view($id = null) {
-        if (!$this->Video->exists($id)) {
-            throw new NotFoundException(__('Invalid video'));
-        }
-        $options = array('conditions' => array('Video.' . $this->Video->primaryKey => $id));
-        $this->set('video', $this->Video->find('first', $options));
-    }
+    public $layout = 'admin';
     
 /**
  * admin_index method

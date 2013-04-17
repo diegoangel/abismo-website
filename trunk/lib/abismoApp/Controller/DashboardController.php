@@ -1,19 +1,22 @@
 <?php
-App::uses('AdminController', 'Controller');
+App::uses('AppController', 'Controller');
 /**
  * Products Controller
  *
  * @property Product $Product
  * @property RequestHandlerComponent $RequestHandler
  */
-class DashboardController extends AdminController {
+class DashboardController extends AppController {
 
 /**
  * Helpers
  *
  * @var array
  */
-    public $helpers = array('Js', 'Fancybox.Fancybox');
+    public $helpers = array(
+        'Js', 
+        'Fancybox.Fancybox'
+    );
     
     public $layout = 'admin';
 

@@ -1,12 +1,20 @@
 <?php
-App::uses('AdminController', 'Controller');
+App::uses('AppController', 'Controller');
 /**
  * Users Controller
  *
  * @property User $User
  */
-class UsersController extends AdminController {
+class UsersController extends AppController {
 
+    public $components = array(
+        'RequestHandler', 
+        'Auth', 
+        'Session'
+    );
+
+    public $layout = 'admin';
+    
 /**
  * admin_index method
  *
@@ -105,7 +113,7 @@ class UsersController extends AdminController {
             if ($this->Auth->login()) {
                 if ($this->Auth->user('is_admin')) {
                     return $this->redirect(array(
-                                'controller' => 'users',
+                                'controller' => 'dashboard',
                                 'action' => 'index',
                                 'admin' => true
                             ));

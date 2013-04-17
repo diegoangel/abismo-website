@@ -36,6 +36,18 @@ class HomeController extends AppController {
  * @var array
  */
     public $uses = array('project');
+    
+    public $layout = 'home';
+    
+    public function beforeFilter() {
+
+        parent::beforeFilter();
+        $this->Auth->allow('index', 'view');
+    }
+    
+    public function index() {
+    
+    }    
 
 /**
  * Home view
