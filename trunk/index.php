@@ -77,6 +77,13 @@ if (!defined('WWW_ROOT')) {
     define('WWW_ROOT', dirname(__FILE__) . DS);
 }
 
+/**
+ * Web path to the public images directory.
+ */
+if (!defined('IMAGES_URL')) {
+    define('IMAGES_URL', 'images/');
+}
+
 // for built-in server
 if (php_sapi_name() == 'cli-server') {
     if ($_SERVER['REQUEST_URI'] !== '/' && file_exists(WWW_ROOT . $_SERVER['REQUEST_URI'])) {
