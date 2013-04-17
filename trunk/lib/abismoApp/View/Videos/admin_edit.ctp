@@ -18,10 +18,12 @@
         <fieldset>
             <legend><?php echo __('Edit Video'); ?></legend>
         <?php
-            echo $this->Form->input('id');
-            echo $this->Form->input('filename');
-            echo $this->Form->input('filepath');
-            echo $this->Form->input('active');
+        echo $this->Form->input('id');
+        echo $this->Form->input('referenced_id');
+        echo $this->Form->input('reference_type');
+        echo $this->Form->input('title');
+        echo $this->Form->input('embed_code');
+        echo $this->Form->input('active');
         ?>
         </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>

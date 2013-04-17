@@ -21,6 +21,7 @@
         <thead>
             <tr>
                 <th><?php echo $this->Paginator->sort('id'); ?></th>
+                <th><?php echo $this->Paginator->sort('referenced_type'); ?></th>                
                 <th><?php echo $this->Paginator->sort('filename'); ?></th>
                 <th><?php echo $this->Paginator->sort('active'); ?></th>
                 <th><?php echo $this->Paginator->sort('created'); ?></th>
@@ -32,6 +33,7 @@
         <?php foreach ($images as $image): ?>
             <tr>
                 <td><?php echo h($image['Image']['id']); ?>&nbsp;</td>
+                <td><?php echo h($image['Image']['referenced_type']); ?>&nbsp;</td>
                 <td><?php echo h($image['Image']['filename']); ?>&nbsp;</td>
                 <td><?php echo h($image['Image']['active']); ?>&nbsp;</td>
                 <td><?php echo h($image['Image']['created']); ?>&nbsp;</td>

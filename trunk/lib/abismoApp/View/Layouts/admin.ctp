@@ -17,7 +17,7 @@
 <html>
     <head>
         <?php echo $this->Html->charset(); ?>   
-        <title><?php echo __('Admin'); ?></title>
+        <title><?php echo __('ab.ismo Admin'); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php echo $this->Html->css('bootstrap.css') ?>
         <style type="text/css">
@@ -28,13 +28,15 @@
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <?php echo $this->Html->meta('icon'); ?>
-        <?php echo $this->fetch('meta'); ?>
-        <?php echo $this->fetch('css');  ?>    
-        <?php echo $this->Html->script('jquery-1.9.1.min.js');  ?> 
-        <?php echo $this->fetch('script');  ?>      
-        <?php echo $this->Html->script('lib/tinymce/jquery.tinymce.js'); ?>     
-        <?php echo $this->Html->script('lib/tinymce/tiny_mce.js'); ?>                
+        <?php 
+            echo $this->Html->meta('icon');
+            echo $this->fetch('meta');
+            echo $this->fetch('css');    
+            echo $this->Html->script('jquery-1.9.1.min.js');
+            echo $this->fetch('script');
+            echo $this->Html->script('lib/tinymce/jquery.tinymce.js');
+            echo $this->Html->script('lib/tinymce/tiny_mce.js'); 
+        ?>             
     </head>
     <body>
         <div class="navbar navbar-fixed-top">

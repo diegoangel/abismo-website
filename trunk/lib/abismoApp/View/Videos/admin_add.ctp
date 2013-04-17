@@ -17,8 +17,10 @@
         <fieldset>
             <legend><?php echo __('Add Video'); ?></legend>
         <?php
-            echo $this->Form->input('filename');
-            echo $this->Form->input('filepath');
+            echo $this->Form->input('referenced_id');
+            echo $this->Form->input('reference_type');
+            echo $this->Form->input('title');
+            echo $this->Form->input('embed_code');
             echo $this->Form->input('active');
         ?>
         </fieldset>

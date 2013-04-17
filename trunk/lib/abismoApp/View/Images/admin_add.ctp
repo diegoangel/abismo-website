@@ -17,6 +17,8 @@
         <fieldset>
             <legend><?php echo __('Add Image'); ?></legend>
         <?php
+            echo $this->Form->input('referenced_id');
+            echo $this->Form->input('referenced_type');        
             echo $this->Form->input('filename');
             echo $this->Form->input('filepath');
             echo $this->Form->input('alt');

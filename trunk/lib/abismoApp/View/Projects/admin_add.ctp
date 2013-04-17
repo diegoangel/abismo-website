@@ -17,12 +17,13 @@
         <fieldset>
             <legend><?php echo __('Add Project'); ?></legend>
         <?php
-            echo $this->Form->input('image_id');
-            echo $this->Form->input('video_id');
             echo $this->Form->input('title');
             echo $this->Form->input('subtitle');
-            echo $this->Form->input('headline');
-            echo $this->Form->input('description');
+            echo $this->Form->input('location');
+            echo $this->Form->input('project_idea_and_management');
+            echo $this->Form->input('client');
+            echo $this->Form->input('total area');
+            echo $this->Form->input('year');
             echo $this->Form->input('proposal');
             echo $this->Form->input('show_in_home');
             echo $this->Form->input('featured');
@@ -34,13 +35,14 @@
 
 
 <script type="text/javascript">
-tinyMCE.init({
+tinyMCE.init({/*
         // General options
         mode : "textareas",
         theme : "advanced",
         language : "es",
-       width : "640",
-        height: "380",        
+        width : "640",
+        height: "280",        
         convert_urls : false 
+        */
 });
 </script> 
