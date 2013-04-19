@@ -1,0 +1,681 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: abismo_0.1a\n"
+"POT-Creation-Date: 2013-04-19 16:49-0300\n"
+"PO-Revision-Date: 2013-04-19 17:27-0300\n"
+"Last-Translator: Diego <diegoangel77@gmail.com>\n"
+"Language-Team:  <diegoangel77@gmail.com,elalmacen60@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: ARGENTINA\n"
+
+#: Controller/ImagesController.php:31;63;89
+msgid "Invalid image"
+msgstr "Imagen invalida"
+
+#: Controller/ImagesController.php:46;67
+msgid "The image has been saved"
+msgstr "La imagen no pudo ser guardada"
+
+#: Controller/ImagesController.php:49;70
+msgid "The image could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ImagesController.php:93
+msgid "Image deleted"
+msgstr "Imagen eliminada"
+
+#: Controller/ImagesController.php:96
+msgid "Image was not deleted"
+msgstr ""
+
+#: Controller/ProjectsController.php:35;62;99;129
+msgid "Invalid project"
+msgstr ""
+
+#: Controller/ProjectsController.php:78;103
+msgid "The project has been saved"
+msgstr ""
+
+#: Controller/ProjectsController.php:81;106
+msgid "The project could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/ProjectsController.php:133
+msgid "Project deleted"
+msgstr ""
+
+#: Controller/ProjectsController.php:136
+msgid "Project was not deleted"
+msgstr ""
+
+#: Controller/TendersController.php:35;62;99;129
+msgid "Invalid tender"
+msgstr ""
+
+#: Controller/TendersController.php:78;103
+msgid "The tender has been saved"
+msgstr ""
+
+#: Controller/TendersController.php:81;106
+msgid "The tender could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/TendersController.php:133
+msgid "Tender deleted"
+msgstr ""
+
+#: Controller/TendersController.php:136
+msgid "Tender was not deleted"
+msgstr ""
+
+#: Controller/UsersController.php:37;69;95
+msgid "Invalid user"
+msgstr ""
+
+#: Controller/UsersController.php:52;73
+msgid "The user has been saved"
+msgstr ""
+
+#: Controller/UsersController.php:55;76
+msgid "The user could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/UsersController.php:99
+msgid "User deleted"
+msgstr ""
+
+#: Controller/UsersController.php:102
+msgid "User was not deleted"
+msgstr ""
+
+#: Controller/UsersController.php:124
+msgid "Nombre de usuario o password incorrectos"
+msgstr ""
+
+#: Controller/VideosController.php:31;63;89
+msgid "Invalid video"
+msgstr ""
+
+#: Controller/VideosController.php:46;67
+msgid "The video has been saved"
+msgstr ""
+
+#: Controller/VideosController.php:49;70
+msgid "The video could not be saved. Please, try again."
+msgstr ""
+
+#: Controller/VideosController.php:93
+msgid "Video deleted"
+msgstr ""
+
+#: Controller/VideosController.php:96
+msgid "Video was not deleted"
+msgstr ""
+
+#: View/Dashboard/admin_index.ctp:2
+msgid "Panel de Administración"
+msgstr ""
+
+#: View/Images/admin_add.ctp:4
+#: View/Images/admin_edit.ctp:4
+#: View/Images/admin_index.ctp:4;29
+#: View/Images/admin_view.ctp:52
+#: View/Projects/admin_add.ctp:4
+#: View/Projects/admin_edit.ctp:4
+#: View/Projects/admin_index.ctp:4;30
+#: View/Projects/admin_view.ctp:4
+#: View/Tenders/admin_add.ctp:4
+#: View/Tenders/admin_edit.ctp:4
+#: View/Tenders/admin_index.ctp:4;29
+#: View/Tenders/admin_view.ctp:4
+#: View/Users/admin_index.ctp:4;23
+#: View/Videos/admin_add.ctp:4
+#: View/Videos/admin_edit.ctp:4
+#: View/Videos/admin_index.ctp:4;29
+#: View/Videos/admin_view.ctp:37;67;120
+#: View/Users/admin_add.ctp:4
+#: View/Users/admin_edit.ctp:4
+#: View/Users/admin_view.ctp:4
+msgid "Actions"
+msgstr ""
+
+#: View/Images/admin_add.ctp:5
+#: View/Images/admin_edit.ctp:6
+#: View/Images/admin_view.ctp:56
+#: View/Projects/admin_add.ctp:6
+#: View/Projects/admin_edit.ctp:7
+#: View/Projects/admin_index.ctp:6
+#: View/Projects/admin_view.ctp:9
+#: View/Tenders/admin_add.ctp:6
+#: View/Tenders/admin_edit.ctp:7
+#: View/Tenders/admin_index.ctp:6
+#: View/Tenders/admin_view.ctp:9
+msgid "List Images"
+msgstr ""
+
+#: View/Images/admin_add.ctp:6
+#: View/Images/admin_edit.ctp:7
+#: View/Images/admin_index.ctp:6
+#: View/Images/admin_view.ctp:58
+#: View/Projects/admin_add.ctp:5
+#: View/Projects/admin_edit.ctp:6
+#: View/Projects/admin_view.ctp:7
+#: View/Videos/admin_add.ctp:6
+#: View/Videos/admin_edit.ctp:7
+#: View/Videos/admin_index.ctp:6
+#: View/Videos/admin_view.ctp:43
+msgid "List Projects"
+msgstr "Listar Proyectos"
+
+#: View/Images/admin_add.ctp:7
+#: View/Images/admin_edit.ctp:8
+#: View/Images/admin_index.ctp:7
+#: View/Images/admin_view.ctp:59
+#: View/Projects/admin_index.ctp:5
+#: View/Projects/admin_view.ctp:8
+#: View/Videos/admin_add.ctp:7
+#: View/Videos/admin_edit.ctp:8
+#: View/Videos/admin_index.ctp:7
+#: View/Videos/admin_view.ctp:44;98
+msgid "New Project"
+msgstr "Nuevo Proyecto"
+
+#: View/Images/admin_add.ctp:8
+#: View/Images/admin_edit.ctp:9
+#: View/Images/admin_index.ctp:8
+#: View/Images/admin_view.ctp:60
+#: View/Tenders/admin_add.ctp:5
+#: View/Tenders/admin_edit.ctp:6
+#: View/Tenders/admin_view.ctp:7
+#: View/Videos/admin_add.ctp:8
+#: View/Videos/admin_edit.ctp:9
+#: View/Videos/admin_index.ctp:8
+#: View/Videos/admin_view.ctp:45
+msgid "List Tenders"
+msgstr "Listar Concursos"
+
+#: View/Images/admin_add.ctp:9
+#: View/Images/admin_edit.ctp:10
+#: View/Images/admin_index.ctp:9
+#: View/Images/admin_view.ctp:61
+#: View/Tenders/admin_index.ctp:5
+#: View/Tenders/admin_view.ctp:8
+#: View/Videos/admin_add.ctp:9
+#: View/Videos/admin_edit.ctp:10
+#: View/Videos/admin_index.ctp:9
+#: View/Videos/admin_view.ctp:46;151
+msgid "New Tender"
+msgstr "Nuevo Concurso"
+
+#: View/Images/admin_add.ctp:18
+msgid "Add Image"
+msgstr "Agregar Imagen"
+
+#: View/Images/admin_add.ctp:28
+#: View/Images/admin_edit.ctp:30
+#: View/Projects/admin_add.ctp:33
+#: View/Projects/admin_edit.ctp:35
+#: View/Tenders/admin_add.ctp:32
+#: View/Tenders/admin_edit.ctp:34
+#: View/Users/admin_add.ctp:24
+#: View/Users/admin_edit.ctp:25
+#: View/Videos/admin_add.ctp:27
+#: View/Videos/admin_edit.ctp:29
+msgid "Submit"
+msgstr "Enviar"
+
+#: View/Images/admin_edit.ctp:5
+#: View/Images/admin_index.ctp:48
+#: View/Projects/admin_edit.ctp:5
+#: View/Projects/admin_index.ctp:50
+#: View/Tenders/admin_edit.ctp:5
+#: View/Tenders/admin_index.ctp:48
+#: View/Users/admin_edit.ctp:5
+#: View/Users/admin_index.ctp:42
+#: View/Videos/admin_edit.ctp:5
+#: View/Videos/admin_index.ctp:48
+#: View/Videos/admin_view.ctp:89;142
+msgid "Delete"
+msgstr "Eliminar"
+
+#: View/Images/admin_edit.ctp:5
+#: View/Images/admin_index.ctp:48
+#: View/Images/admin_view.ctp:55
+#: View/Projects/admin_edit.ctp:5
+#: View/Projects/admin_index.ctp:50
+#: View/Projects/admin_view.ctp:6
+#: View/Tenders/admin_edit.ctp:5
+#: View/Tenders/admin_index.ctp:48
+#: View/Tenders/admin_view.ctp:6
+#: View/Users/admin_edit.ctp:5
+#: View/Users/admin_index.ctp:42
+#: View/Users/admin_view.ctp:6
+#: View/Videos/admin_edit.ctp:5
+#: View/Videos/admin_index.ctp:48
+#: View/Videos/admin_view.ctp:40;89;142
+msgid "Are you sure you want to delete # %s?"
+msgstr "Esta seguro de eliminar # %s?"
+
+#: View/Images/admin_edit.ctp:19
+#: View/Images/admin_view.ctp:54
+msgid "Edit Image"
+msgstr "Editar Imagen"
+
+#: View/Images/admin_index.ctp:5
+#: View/Images/admin_view.ctp:57
+#: View/Projects/admin_add.ctp:7
+#: View/Projects/admin_edit.ctp:8
+#: View/Projects/admin_index.ctp:7
+#: View/Projects/admin_view.ctp:10
+#: View/Tenders/admin_add.ctp:7
+#: View/Tenders/admin_edit.ctp:8
+#: View/Tenders/admin_index.ctp:7
+#: View/Tenders/admin_view.ctp:10
+msgid "New Image"
+msgstr "Nueva Imagen"
+
+#: View/Images/admin_index.ctp:17
+msgid "Images"
+msgstr "Imagenes"
+
+#: View/Images/admin_index.ctp:42
+#: View/Projects/admin_index.ctp:44
+#: View/Tenders/admin_index.ctp:42
+#: View/Users/admin_index.ctp:36
+#: View/Videos/admin_index.ctp:42
+#: View/Videos/admin_view.ctp:87;140
+msgid "View"
+msgstr "Ver"
+
+#: View/Images/admin_index.ctp:45
+#: View/Projects/admin_index.ctp:47
+#: View/Tenders/admin_index.ctp:45
+#: View/Users/admin_index.ctp:39
+#: View/Videos/admin_index.ctp:45
+#: View/Videos/admin_view.ctp:88;141
+msgid "Edit"
+msgstr "Editar"
+
+#: View/Images/admin_view.ctp:2
+msgid "Image"
+msgstr "imagen"
+
+#: View/Images/admin_view.ctp:4
+#: View/Projects/admin_view.ctp:22
+#: View/Tenders/admin_view.ctp:21
+#: View/Users/admin_view.ctp:19
+#: View/Videos/admin_view.ctp:4;54;107
+msgid "Id"
+msgstr "Id"
+
+#: View/Images/admin_view.ctp:9
+#: View/Projects/admin_view.ctp:20
+#: View/Tenders/admin_view.ctp:19
+msgid "Project"
+msgstr "Proyecto"
+
+#: View/Images/admin_view.ctp:14
+msgid "Referenced Type"
+msgstr ""
+
+#: View/Images/admin_view.ctp:19
+#: View/Videos/admin_view.ctp:9
+msgid "Filename"
+msgstr "Nombre"
+
+#: View/Images/admin_view.ctp:24
+#: View/Videos/admin_view.ctp:14
+msgid "Filepath"
+msgstr "Ruta"
+
+#: View/Images/admin_view.ctp:29
+msgid "Alt"
+msgstr ""
+
+#: View/Images/admin_view.ctp:34
+#: View/Projects/admin_view.ctp:77
+#: View/Tenders/admin_view.ctp:71
+#: View/Videos/admin_view.ctp:19;64;117
+msgid "Active"
+msgstr "Activo"
+
+#: View/Images/admin_view.ctp:39
+#: View/Projects/admin_view.ctp:82
+#: View/Tenders/admin_view.ctp:76
+#: View/Videos/admin_view.ctp:24;65;118
+msgid "Created"
+msgstr "Creado"
+
+#: View/Images/admin_view.ctp:44
+#: View/Projects/admin_view.ctp:87
+#: View/Tenders/admin_view.ctp:81
+#: View/Videos/admin_view.ctp:29;66;119
+msgid "Modified"
+msgstr "Modificado"
+
+#: View/Images/admin_view.ctp:55
+msgid "Delete Image"
+msgstr "Eliminar Imagen"
+
+#: View/Layouts/admin.ctp:20
+msgid "ab.ismo Admin"
+msgstr ""
+
+#: View/Layouts/admin.ctp:50
+#: View/Users/admin_view.ctp:34
+msgid "Admin"
+msgstr "Administración"
+
+#: View/Layouts/admin.ctp:62
+msgid "Visitar el Sitio"
+msgstr "Visitar el Sitio"
+
+#: View/Layouts/admin.ctp:63
+msgid "Logout"
+msgstr "Logout"
+
+#: View/Layouts/default.ctp:6
+#: View/Layouts/home.ctp:6
+msgid "ab.ismo || Oficina de arquitectura"
+msgstr ""
+
+#: View/Projects/admin_add.ctp:8
+#: View/Projects/admin_edit.ctp:9
+#: View/Projects/admin_index.ctp:8
+#: View/Projects/admin_view.ctp:11
+#: View/Tenders/admin_add.ctp:8
+#: View/Tenders/admin_edit.ctp:9
+#: View/Tenders/admin_index.ctp:8
+#: View/Tenders/admin_view.ctp:11
+#: View/Videos/admin_add.ctp:5
+#: View/Videos/admin_edit.ctp:6
+#: View/Videos/admin_view.ctp:41
+msgid "List Videos"
+msgstr "Listar Videos"
+
+#: View/Projects/admin_add.ctp:9
+#: View/Projects/admin_edit.ctp:10
+#: View/Projects/admin_index.ctp:9
+#: View/Projects/admin_view.ctp:12
+#: View/Tenders/admin_add.ctp:9
+#: View/Tenders/admin_edit.ctp:10
+#: View/Tenders/admin_index.ctp:9
+#: View/Tenders/admin_view.ctp:12
+#: View/Videos/admin_index.ctp:5
+#: View/Videos/admin_view.ctp:42
+msgid "New Video"
+msgstr "Nuevo Video"
+
+#: View/Projects/admin_add.ctp:18
+msgid "Add Project"
+msgstr "Agregar Proyecto"
+
+#: View/Projects/admin_edit.ctp:19
+#: View/Projects/admin_view.ctp:5
+msgid "Edit Project"
+msgstr "Editar Proyecto"
+
+#: View/Projects/admin_index.ctp:17
+msgid "Projects"
+msgstr "Proyectos"
+
+#: View/Projects/admin_view.ctp:6
+msgid "Delete Project"
+msgstr "Eliminar Proyecto"
+
+#: View/Projects/admin_view.ctp:27
+#: View/Tenders/admin_view.ctp:26
+#: View/Videos/admin_view.ctp:57;110
+msgid "Title"
+msgstr "Título"
+
+#: View/Projects/admin_view.ctp:32
+#: View/Tenders/admin_view.ctp:31
+#: View/Videos/admin_view.ctp:58;111
+msgid "Subtitle"
+msgstr "Subtítulo"
+
+#: View/Projects/admin_view.ctp:37
+#: View/Tenders/admin_view.ctp:36
+msgid "Location"
+msgstr "Ubicación"
+
+#: View/Projects/admin_view.ctp:42
+#: View/Tenders/admin_view.ctp:41
+msgid "Project Idea And Management"
+msgstr "Proyecto y Dirección"
+
+#: View/Projects/admin_view.ctp:47
+#: View/Tenders/admin_view.ctp:46
+msgid "Client"
+msgstr "Cliente"
+
+#: View/Projects/admin_view.ctp:52
+#: View/Tenders/admin_view.ctp:51
+msgid "Total Area"
+msgstr "Superficie"
+
+#: View/Projects/admin_view.ctp:57
+#: View/Tenders/admin_view.ctp:56
+msgid "Year"
+msgstr "Año"
+
+#: View/Projects/admin_view.ctp:62
+#: View/Tenders/admin_view.ctp:61
+#: View/Videos/admin_view.ctp:61;114
+msgid "Proposal"
+msgstr "Propuesta"
+
+#: View/Projects/admin_view.ctp:67
+#: View/Videos/admin_view.ctp:62;115
+msgid "Show In Home"
+msgstr "Mostrar en Home"
+
+#: View/Projects/admin_view.ctp:72
+#: View/Tenders/admin_view.ctp:66
+#: View/Videos/admin_view.ctp:63;116
+msgid "Featured"
+msgstr "Destacado"
+
+#: View/Tenders/admin_add.ctp:18
+msgid "Add Tender"
+msgstr "Agregar Concurso"
+
+#: View/Tenders/admin_edit.ctp:19
+#: View/Tenders/admin_view.ctp:5
+msgid "Edit Tender"
+msgstr "Editar Concurso"
+
+#: View/Tenders/admin_index.ctp:17
+msgid "Tenders"
+msgstr "Concursos"
+
+#: View/Tenders/admin_view.ctp:6
+msgid "Delete Tender"
+msgstr "Eliminar Concursos"
+
+#: View/Users/admin_add.ctp:5
+#: View/Users/admin_edit.ctp:6
+#: View/Users/admin_view.ctp:7
+msgid "List Users"
+msgstr "Listar Ususarios"
+
+#: View/Users/admin_add.ctp:15
+msgid "Nuevo Usuario"
+msgstr "Nuevo Usuario"
+
+#: View/Users/admin_edit.ctp:15
+msgid "Admin Edit User"
+msgstr "Editar Usuarios"
+
+#: View/Users/admin_index.ctp:5
+#: View/Users/admin_view.ctp:8
+msgid "New User"
+msgstr "Nuevo Usuario"
+
+#: View/Users/admin_index.ctp:12
+msgid "Usuarios"
+msgstr "Usuarios"
+
+#: View/Users/admin_view.ctp:5
+msgid "Edit User"
+msgstr "Editar Usuario"
+
+#: View/Users/admin_view.ctp:6
+msgid "Delete User"
+msgstr "Eliminar Usuario"
+
+#: View/Users/admin_view.ctp:16;24
+msgid "Usuario"
+msgstr ""
+
+#: View/Users/admin_view.ctp:29
+msgid "Contrase&ntilde;a"
+msgstr "Contraseña"
+
+#: View/Users/admin_view.ctp:39
+msgid "Activo"
+msgstr ""
+
+#: View/Users/admin_view.ctp:44
+msgid "Creado"
+msgstr ""
+
+#: View/Users/admin_view.ctp:49
+msgid "Modificado"
+msgstr ""
+
+#: View/Videos/admin_add.ctp:18
+msgid "Add Video"
+msgstr "Añadir Video"
+
+#: View/Videos/admin_edit.ctp:19
+#: View/Videos/admin_view.ctp:39
+msgid "Edit Video"
+msgstr ""
+
+#: View/Videos/admin_index.ctp:17
+msgid "Videos"
+msgstr ""
+
+#: View/Videos/admin_view.ctp:2
+msgid "Video"
+msgstr ""
+
+#: View/Videos/admin_view.ctp:40
+msgid "Delete Video"
+msgstr ""
+
+#: View/Videos/admin_view.ctp:50
+msgid "Related Projects"
+msgstr ""
+
+#: View/Videos/admin_view.ctp:55;108
+msgid "Image Id"
+msgstr ""
+
+#: View/Videos/admin_view.ctp:56;109
+msgid "Video Id"
+msgstr ""
+
+#: View/Videos/admin_view.ctp:59;112
+msgid "Headline"
+msgstr ""
+
+#: View/Videos/admin_view.ctp:60;113
+msgid "Description"
+msgstr ""
+
+#: View/Videos/admin_view.ctp:103
+msgid "Related Tenders"
+msgstr ""
+
+#: Model/Image.php:validation
+#: for field referenced_id
+#: Model/Project.php:validation
+#: year Model/Tender.php:validation
+#: total_area;validation Model/Video.php:validation
+msgid "numeric"
+msgstr ""
+
+#: Model/Image.php:validation
+#: for field referenced_type
+#: Model/Video.php:validation
+#: reference_type
+msgid "inlist"
+msgstr ""
+
+#: Model/Image.php:validation
+#: for field filename;validation
+#: filepath;validation alt Model/Project.php:validation
+#: title;validation
+#: subtitle Model/Tender.php:validation
+#: Model/Video.php:validation
+#: embed_code
+msgid "notempty"
+msgstr ""
+
+#: Model/Image.php:validation
+#: for field active Model/Project.php:validation
+#: show_in_home;validation featured;validation Model/Tender.php:validation
+#: Model/Video.php:validation
+msgid "boolean"
+msgstr ""
+
+#: Model/User.php:validation
+#: for field username
+msgid "Nombre de usuario no puede estar vacio"
+msgstr ""
+
+#: Model/User.php:validation
+#: for field username
+msgid "El nombre de usuario ya existe"
+msgstr ""
+
+#: Model/User.php:validation
+#: for field username
+msgid "Ingrese un caracter alfanumerico, guion del medio o guion bajo"
+msgstr ""
+
+#: Model/User.php:validation
+#: for field password
+msgid "Password no puede estar vacio"
+msgstr ""
+
+#: Model/User.php:validation
+#: for field password
+msgid "Los passwords deben coincidir"
+msgstr ""
+
+#: View/Errors/error400.ctp:22
+#: View/Errors/error500.ctp:22
+msgid "Error"
+msgstr ""
+
+#: View/Errors/error400.ctp:24
+msgid "The requested address %s was not found on this server."
+msgstr ""
+
+#: View/Errors/error500.ctp:23
+msgid "An Internal Error Has Occurred."
+msgstr ""
+
+#: View/Images/admin_index.ctp:56
+#: View/Projects/admin_index.ctp:58
+#: View/Tenders/admin_index.ctp:56
+#: View/Users/admin_index.ctp:49
+#: View/Videos/admin_index.ctp:56
+msgid "Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}"
+msgstr ""
+
+#: View/Layouts/error.ctp:20
+msgid "CakePHP: the rapid development php framework"
+msgstr ""
+
