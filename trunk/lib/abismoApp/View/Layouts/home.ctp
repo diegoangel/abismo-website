@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php echo $this->Html->docType('html5'); ?>
 <html>
 <head>
     <?php echo $this->Html->charset(); ?>
@@ -8,6 +8,7 @@
 <!--[if lt IE 9]><script src="js/shiv.js"></script><![endif]-->    
     <?php
         echo $this->Html->meta('icon');
+        echo $this->Html->meta('viewport', 'width=device-width, initial-scale=1.0');        
         echo $this->fetch('meta');
         echo $this->Html->css('reset.css');
         echo $this->Html->css('fonts.css');
