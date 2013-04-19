@@ -33,7 +33,9 @@
     Router::connect('/concursos', array('controller'=>'tenders', 'action' => 'index'));
     Router::connect('/concursos/detalle/*', array('controller'=>'tenders', 'action' => 'view'));
     
-    Router::connect('/estudio', array('controller'=>'studio', 'action' => 'index', 'index'));       
+    Router::connect('/estudio', array('controller'=>'studio', 'action' => 'index', 'index'));  
+         
+    Router::connect('/admin', array('controller'=>'app', 'action' => 'index', 'admin_index'));       
         
 /**
  * Load all plugin routes. See the CakePlugin documentation on

@@ -72,7 +72,9 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 
-CakePlugin::load('DebugKit');
+if (!IN_PRODUCTION) {
+    CakePlugin::load('DebugKit');
+}
 CakePlugin::load('Fancybox');
 CakePlugin::load('Uploader');
 CakePlugin::load('Localized');

@@ -9,10 +9,10 @@ class AppController extends Controller {
     /**
      * Components
      *
-     * @var array
+     * @var array $components
      */
-    var $components = array(
-        'DebugKit.Toolbar',
+    public $components = array(
+        'DebugKit.Toolbar', // only loads if the enviroment is development
         'RequestHandler',
         'Session',
         'Auth' => array(
@@ -32,11 +32,16 @@ class AppController extends Controller {
                 'admin' => true
             ),
             'autoRedirect' => false,
-            'authError' => 'No tiene permisos para acceder a la pagina',            
+            'authError' => 'No tiene permisos para acceder a la pagina',
             'authorize' => array('Controller')
         )
     );
-    var $helpers = array(
+    /**
+     * Helpers
+     * 
+     * @var array $helpers
+     */    
+    public $helpers = array(
         'Form' => array(
             'className' => 'BootstrapForm'
         ),
@@ -51,8 +56,13 @@ class AppController extends Controller {
         'Fancybox.Fancybox'
     );
 
+/**
+ * Checks if is an authorized user with admin privileges
+ * 
+ * @return bool
+ */ 
     function isAuthorized() {
-        if (!empty($this->params['prefix']) && $this->params['prefix'] == 'admin') {
+        if ($this->isAdminRequest()) {
             if ($this->Auth->user('is_admin') != true) {
                 return false;
             }
@@ -64,29 +74,35 @@ class AppController extends Controller {
              
         return true;
     }
-
-    public function beforeFilter()
-    {
-        parent::beforeFilter();
-        $Folder = new Folder(APP . 'Model');
-        $files = $Folder->find('.*', true);
-        $navbar = array();
-        foreach ($files as $file) {
-            if ($file !== 'AppModel.php') {
-                $model = str_replace('.php', '', $file);
-                $controller = Inflector::tableize($model);
-                $title = Inflector::pluralize($model);
-                $navbar[] = array(
-                    'title' => $title,
-                    'url' => array(
-                        'controller' => $controller,
-                        'action' => 'index'
-                    )
-                );
+    
+/**
+ * Builds the admin's section menu
+ * 
+ * @return void
+ */ 
+    public function beforeFilter() {
+        if ($this->isAdminRequest()) {
+            parent::beforeFilter();
+            $Folder = new Folder(APP . 'Model');
+            $files = $Folder->find('.*', true);
+            $navbar = array();
+            foreach ($files as $file) {
+                if ($file !== 'AppModel.php') {
+                    $model = str_replace('.php', '', $file);
+                    $controller = Inflector::tableize($model);
+                    $title = Inflector::pluralize($model);
+                    $navbar[] = array(
+                        'title' => $title,
+                        'url' => array(
+                            'controller' => $controller,
+                            'action' => 'index'
+                        )
+                    );
+                }
             }
-        }
 
-        $this->set(compact('navbar'));
+            $this->set(compact('navbar'));
+        }
     }
 /**
  * Redirige al dashboard si se ingresa a la url /admin
@@ -99,6 +115,19 @@ class AppController extends Controller {
             'action' => 'index', 
             'admin' => true
         ));
+    }
+    
+/**
+ * Checks if the requested uri refers to an admin page 
+ * 
+ * @return void
+ */     
+    protected function isAdminRequest() {
+        
+        if (!empty($this->params['prefix']) && $this->params['prefix'] == 'admin') {
+            return true;
+        }
+        return false;
     }
 
 }
