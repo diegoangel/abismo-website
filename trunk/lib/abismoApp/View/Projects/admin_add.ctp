@@ -35,7 +35,7 @@
 
 
 <script type="text/javascript">
-tinyMCE.init({/*
+tinyMCE.init({
         // General options
         mode : "textareas",
         theme : "advanced",
@@ -43,6 +43,5 @@ tinyMCE.init({/*
         width : "640",
         height: "280",        
         convert_urls : false 
-        */
 });
 </script> 
