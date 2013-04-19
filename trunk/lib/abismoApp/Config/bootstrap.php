@@ -71,9 +71,10 @@ Cache::config('default', array('engine' => 'File'));
  * CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
-
-if (!IN_PRODUCTION) {
-    CakePlugin::load('DebugKit');
+if (!$isCLI) {
+    if (IN_PRODUCTION === false) {
+        CakePlugin::load('DebugKit');
+    }
 }
 CakePlugin::load('Fancybox');
 CakePlugin::load('Uploader');
