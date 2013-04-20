@@ -117,7 +117,8 @@ CakeLog::config('error', array(
 ));
 
 /**
- * Default language
+ * Default language and locale
  * 
  */ 
+setlocale('LC_ALL', 'es_AR.utf8', 'es_AR', 'es_AR.ISO8859-1', 'es_ES', 'es');
 Configure::write('Config.language', 'spa');

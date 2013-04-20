@@ -51,6 +51,16 @@ class Image extends AppModel {
                 //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
         ),
+        'type' => array(
+            'inlist' => array(
+                'rule' => array('inlist', array('home', 'slide', 'thumb')),
+                //'message' => 'Your custom message here',
+                //'allowEmpty' => false,
+                //'required' => false,
+                //'last' => false, // Stop validation after this rule
+                //'on' => 'create', // Limit validation to 'create' or 'update' operations
+            ),
+        ),        
         'filepath' => array(
             'notempty' => array(
                 'rule' => array('notempty'),
