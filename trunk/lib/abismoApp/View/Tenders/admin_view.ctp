@@ -17,6 +17,7 @@
     <?php echo $this->Session->flash(); ?>
     <div class="page-header">
         <h1><?php  echo __('Project'); ?></h1>
+    </div>
     <dl>
         <dt><?php echo __('Id'); ?></dt>
         <dd>
