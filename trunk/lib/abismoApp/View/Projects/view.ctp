@@ -42,7 +42,7 @@
             
             <p>
             <strong>Superficie total</strong><br>
-            <?php echo $project['Project']['total_area']; ?>
+            <?php echo $project['Project']['total_area']; ?> m2
             </p>
             
             <p>

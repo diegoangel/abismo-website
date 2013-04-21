@@ -43,7 +43,7 @@
             
             <p>
             <strong>Superficie total</strong><br>
-            <?php echo $tender['Tender']['total_area']; ?>
+            <?php echo $tender['Tender']['total_area']; ?> m2
             </p>
             
             <p>

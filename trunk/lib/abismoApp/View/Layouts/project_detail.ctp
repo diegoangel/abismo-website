@@ -25,14 +25,7 @@
         <?php echo $this->element('contact') ?>
         <section class="inner">
             <h1><a href="/"><img src="/images/abismo-logo.png" alt="ab.ismo || Oficina de arquitectura"></a></h1>
-            <nav>
-                <ul>
-                    <li><a href="/estudio">Estudio</a></li>
-                    <li><a href="/proyectos">Proyectos</a></li>
-                    <li><a href="/concursos">Concursos</a></li>
-                    <li><a href="javascript:void(0)" class="btnContact">Contacto</a></li>
-                </ul>
-            </nav>
+            <?php echo $this->element('nav') ?>
             <nav class="submenu">
                 <ul>
                     <li><a href="/proyectos" class="all">all work</a></li>
