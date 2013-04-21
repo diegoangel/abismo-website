@@ -64,7 +64,7 @@ class BootstrapFormHelper extends FormHelper
         );
         $options = array_merge($defaults, $options);
         if (!empty($options['help'])) {
-            $options['after'] = '<span class="help-block">' . $options['help'] . '</span>' . $options['after'];
+            $options['after'] = ' <i class="icon-info-sign" rel="tooltip" title="' . $options['help']  . '" id="form-help"></i>' . $options['after'];
         }
         return parent::input($fieldName, $options);
     }
