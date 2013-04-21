@@ -37,7 +37,7 @@
                                 $prev = '/proyectos/detalle/' . $pagination['prev']['Project']['id'] . '-' . $this->Slug->transform($pagination['prev']['Project']['title']);
                             }
                         ?>
-                        <a rel="prev" href="<?php echo $prev ?>" class="">prev project</a>
+                        <a rel="prev" href="<?php echo $prev ?>" class="prev">prev project</a>
                     </li>
                     <li>
                         <?php 
@@ -47,7 +47,7 @@
                                 $next = '/proyectos/detalle/' . $pagination['next']['Project']['id'] . '-' . $this->Slug->transform($pagination['next']['Project']['title']);
                             }
                         ?>                        
-                        <a rel="next" href="<?php echo $next ?>" class="">next project</a>
+                        <a rel="next" href="<?php echo $next ?>" class="next">next project</a>
                     </li>
                 </ul>
             </nav>            

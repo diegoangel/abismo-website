@@ -37,7 +37,7 @@
                                 $prev = '/concursos/detalle/' . $pagination['prev']['Tender']['id'] . '-' . $this->Slug->transform($pagination['prev']['Tender']['title']);
                             }
                         ?>
-                        <a rel="prev" href="<?php echo $prev ?>" class="">prev project</a>
+                        <a rel="prev" href="<?php echo $prev ?>" class="prev">prev project</a>
                     </li>
                     <li>
                         <?php 
@@ -47,7 +47,7 @@
                                 $next = '/concursos/detalle/' . $pagination['next']['Tender']['id'] . '-' . $this->Slug->transform($pagination['next']['Tender']['title']);
                             }
                         ?>                        
-                        <a rel="next" href="<?php echo $next ?>" class="">next project</a>
+                        <a rel="next" href="<?php echo $next ?>" class="next">next project</a>
                     </li>
                 </ul>
             </nav>            
