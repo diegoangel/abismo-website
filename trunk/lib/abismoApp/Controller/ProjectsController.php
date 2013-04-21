@@ -15,7 +15,8 @@ class ProjectsController extends AppController {
     public $helpers = array(
         'Slug' => array(
             'className' => 'Slug'
-        )
+        ),
+        'Paginator'
     );
 
     
