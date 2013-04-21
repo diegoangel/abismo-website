@@ -50,15 +50,22 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>     
         <div class="container-fluid">
             <div class="row-fluid">
                 <?php echo $this->fetch('content'); ?>
             </div>
-            <hr>
-            <div class="row-fluid">
-                <?php //echo str_replace('class="cake-sql-log"', 'class="table table-bordered table-striped"', $this->element('sql_dump')); ?>
-            </div>
         </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <hr>
+                <div class="pull-right">
+                    <a href="#" class="label">© Inima Interactive</a>
+                </div>
+                <div>
+                    <?php //echo str_replace('class="cake-sql-log"', 'class="table table-bordered table-striped"', $this->element('sql_dump')); ?>
+                </div>                
+            </div>
+        </div>           
     </body>
 </html>

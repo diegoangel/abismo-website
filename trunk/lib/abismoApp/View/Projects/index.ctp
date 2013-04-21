@@ -51,4 +51,6 @@
             <?php endforeach; ?>
         </ul>
         <div class="fix"></div>
+        <?php echo $this->element('paginator'); ?>      
+        <div class="fix"></div>
     </section>

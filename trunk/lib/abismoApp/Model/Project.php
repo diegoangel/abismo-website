@@ -146,15 +146,15 @@ class Project extends AppModel {
 /**
  * hasMany associations
  *
- * @var array
+ * @var array $hasMany
  */
     public $hasMany = array(
         'Image' => array(
             'className' => 'Image',
             'foreignKey' => 'referenced_id',
             'dependent' => true,
-            'conditions' => array('Image.referenced_type' => 'project'),
-            'fields' => '',
+            'conditions' => array('referenced_type' => 'project'),
+            'fields' => array('id', 'type', 'filename', 'filepath', 'alt', 'active'),
             'order' => '',
             'limit' => '',
             'offset' => '',
@@ -166,8 +166,8 @@ class Project extends AppModel {
             'className' => 'Video',
             'foreignKey' => 'referenced_id',
             'dependent' => true,
-            'conditions' => array('Video.referenced_type' => 'project'),
-            'fields' => '',
+            'conditions' => array('referenced_type' => 'project'),
+            'fields' => array('id', 'embed_code', 'active'),
             'order' => '',
             'limit' => '',
             'offset' => '',
@@ -176,6 +176,9 @@ class Project extends AppModel {
             'counterQuery' => ''
         )
     );
+    
+    public $actsAs = array('Containable');
+    
 /**
  * Selecciona un proyecto al en forma aleatoria de la DDBB
  * 
@@ -186,10 +189,32 @@ class Project extends AppModel {
         try {
             $offset = $this->find('first', array(
                 'fields' => 'FLOOR(RAND() * COUNT(*)) AS offset',
-                'conditions' => 'show_in_home = true'
+                'conditions' => array(
+                    'show_in_home = true', 
+                    'active' => true
+                )
             ));
             $project = $this->find('first', array(
-                'conditions' => 'show_in_home = true',
+                'contain' => array(
+                    'Image' => array(
+                        'fields' => array('filepath', 'alt'),
+                        'conditions' => array(
+                            'type' => 'home', 
+                            'active' => true,
+                            'referenced_type' => 'project'
+                        ), 
+                        'limit' => 1
+                    )
+                ),
+                'fields' => array(
+                    'id', 
+                    'title', 
+                    'subtitle'
+                ),
+                'conditions' => array(
+                    'show_in_home = true', 
+                    'active' => true
+                ),
                 'offset' => $offset[0]['offset'],
                 'limit' => 1
             ));

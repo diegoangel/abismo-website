@@ -21,7 +21,7 @@
         <thead>
             <tr>
                 <th><?php echo $this->Paginator->sort('id'); ?></th>
-                <th><?php echo $this->Paginator->sort('reference_type'); ?></th>
+                <th><?php echo $this->Paginator->sort('referenced_type'); ?></th>
                 <th><?php echo $this->Paginator->sort('title'); ?></th>
                 <th><?php echo $this->Paginator->sort('active'); ?></th>
                 <th><?php echo $this->Paginator->sort('created'); ?></th>
@@ -33,7 +33,7 @@
         <?php foreach ($videos as $video): ?>
             <tr>
                 <td><?php echo h($video['Video']['id']); ?>&nbsp;</td>
-                <td><?php echo h($video['Video']['reference_type']); ?>&nbsp;</td>
+                <td><?php echo h($video['Video']['referenced_type']); ?>&nbsp;</td>
                 <td><?php echo h($video['Video']['title']); ?>&nbsp;</td>
                 <td><?php echo h($video['Video']['active']); ?>&nbsp;</td>
                 <td><?php echo h($video['Video']['created']); ?>&nbsp;</td>
