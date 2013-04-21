@@ -15,11 +15,12 @@
         echo $this->Html->css('style.css');
         echo $this->fetch('css');
         echo $this->Html->script('jquery-1.9.1.min.js');
+        echo $this->Html->script('jquery.carouFredSel-6.2.0-packed.js');
         echo $this->Html->script('scripts.js');
         echo $this->fetch('script');
     ?>
 </head>
-<body class="home">
+<body>
     <header>
         <section class="inner">
             <h1><a href="/"><img src="/images/abismo-logo.png" alt="ab.ismo || Oficina de arquitectura"></a></h1>
