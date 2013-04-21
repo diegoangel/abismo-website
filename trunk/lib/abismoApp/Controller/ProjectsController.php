@@ -6,6 +6,18 @@ App::uses('AppController', 'Controller');
  * @property Project $Project
  */
 class ProjectsController extends AppController {
+
+/**
+ * Helpers
+ * 
+ * @var array
+ */     
+    public $helpers = array(
+        'Slug' => array(
+            'className' => 'Slug'
+        )
+    );
+
     
     public function beforeFilter() {
 
@@ -19,8 +31,57 @@ class ProjectsController extends AppController {
  * @return void
  */
     public function index() {
-        $this->Project->recursive = 0;
-        $this->set('projects', $this->paginate());
+        $featuredProjects = $this->Project->find('all', array(
+            'contain' => array(
+                'Image' => array(
+                    'fields' => array(
+                        'filepath', 
+                        'alt'
+                    ),
+                    'conditions' => array(
+                        'active' => true,
+                        'type' => 'slide',
+                        'referenced_type' => 'project'                        
+                    )
+                )
+            ),        
+            'fields' => array(
+                'id', 
+                'title', 
+                'subtitle'
+            ),              
+            'conditions' => array(          
+                'featured' => true,
+                'active' => true
+            )
+        ));
+        $this->paginate = array(
+            'contain' => array(
+                'Image' => array(
+                    'fields' => array(
+                        'filepath', 
+                        'alt'
+                    ),
+                    'conditions' => array(
+                        'active' => true,
+                        'type' => 'thumb',
+                        'referenced_type' => 'project'
+                    )
+                )
+            ),
+            'fields' => array(
+                'id', 
+                'title', 
+                'subtitle'
+            ),
+            'conditions' => array(
+                'active' => true,
+                'featured' => false
+            ),
+            'limit' => 6
+        );
+        $this->set('featuredProjects', $featuredProjects);
+        $this->set('otherProjects', $this->paginate());
     }
 
 /**

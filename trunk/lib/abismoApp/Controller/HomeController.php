@@ -60,20 +60,7 @@ class HomeController extends AppController {
  * @return void
  */     
     public function view() {
-        
-        $data = array();
         $project = $this->Project->getRamdom();
-        $data = array(
-            'id' => $project['Project']['id'],
-            'title' => $project['Project']['title'],
-            'subtitle' => $project['Project']['subtitle']
-        );
-        foreach($project['Image'] as $image) {
-            if($image['type'] == 'home') {
-                $data['image'] = $image['filepath'];
-                $data['alt'] = $image['alt'];
-            }
-        }
-        $this->set(compact('data'));
+        $this->set('project', $project);
     }
 }

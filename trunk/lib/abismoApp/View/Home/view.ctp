@@ -2,18 +2,18 @@
             <?php
                 echo $this->Html->link(
                     $this->Html->image(
-                        $data['image'], 
-                        array('alt' => $data['alt'])
+                        $project['Image'][0]['filepath'], 
+                        array('alt' => $project['Image'][0]['alt'])
                     ), 
-                    '/proyectos/detalle/' . $data['id'] . '-' . $this->Slug->transform($data['title']),
+                    '/proyectos/detalle/' . $project['Project']['id'] . '-' . $this->Slug->transform($project['Project']['title']),
                     array('escape' => false)
                 );
             ?>        
         </div>
         <div class="titleBg">
             <?php echo $this->Html->link(
-                    $data['alt'], 
-                    '/proyectos/detalle/' . $data['id'] . '-' . $this->Slug->transform($data['title']), 
+                    $project['Image'][0]['alt'], 
+                    '/proyectos/detalle/' . $project['Project']['id'] . '-' . $this->Slug->transform($project['Project']['title']), 
                     array('escape' => false)
                 ); 
             ?> 
