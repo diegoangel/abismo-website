@@ -41,10 +41,11 @@
                 )
             );     
             echo $this->Form->input(
-                'image', 
+                'filepath', 
                 array(
                     'label' => __('Image'), 
-                    'type' => 'file'
+                    'type' => 'file',
+                    'autocomplete' => 'off'
                 )
             );
             echo $this->Form->input(

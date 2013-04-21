@@ -42,6 +42,7 @@ class ImagesController extends AppController {
     public function admin_add() {
         if ($this->request->is('post')) {
             $this->Image->create();
+            debug($this->request->data);
             if ($this->Image->save($this->request->data)) {
                 $this->Session->setFlash(__('The image has been saved'));
                 $this->redirect(array('action' => 'index'));

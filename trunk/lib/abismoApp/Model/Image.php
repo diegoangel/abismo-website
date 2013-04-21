@@ -1,6 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
 App::uses('ArValidation', 'Localized.Validation');
+App::uses('AttachmentBehavior', 'Uploader.Model/Behavior');
 /**
  * Image Model
  *
@@ -34,7 +35,7 @@ class Image extends AppModel {
         ),
         'referenced_type' => array(
             'inlist' => array(
-                'rule' => array('inlist', array('product', 'tender')),
+                'rule' => array('inlist', array('project', 'tender')),
                 //'message' => 'Your custom message here',
                 //'allowEmpty' => false,
                 //'required' => false,
@@ -43,14 +44,14 @@ class Image extends AppModel {
             ),
         ),
         'filename' => array(
-            'notempty' => array(
-                'rule' => array('notempty'),
+            //'notempty' => array(
+                //'rule' => array('notempty'),
                 //'message' => 'Your custom message here',
                 //'allowEmpty' => false,
                 //'required' => false,
                 //'last' => false, // Stop validation after this rule
                 //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
+            //),
         ),
         'type' => array(
             'inlist' => array(
@@ -63,14 +64,14 @@ class Image extends AppModel {
             ),
         ),        
         'filepath' => array(
-            'notempty' => array(
-                'rule' => array('notempty'),
+            //'notempty' => array(
+                //'rule' => array('notempty'),
                 //'message' => 'Your custom message here',
                 //'allowEmpty' => false,
                 //'required' => false,
                 //'last' => false, // Stop validation after this rule
                 //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            ),
+            //),
         ),
         'alt' => array(
             'notempty' => array(
@@ -118,26 +119,35 @@ class Image extends AppModel {
         )
     );
     
-public $actsAs = array(
-    'Uploader.Attachment' => array(
-        'image' => array(
-            'nameCallback' => '',
-            'append' => '',
-            'prepend' => '',
-            'tempDir' => '',
-            'uploadDir' => '',
-            'finalPath' => '',
-            'dbColumn' => '',
-            'metaColumns' => array(),
-            'defaultPath' => '',
-            'overwrite' => false,
-            'stopSave' => true,
-            'allowEmpty' => true,
-            'transforms' => array(),
-            'transport' => array()
+    public $actsAs = array(
+        'Uploader.Attachment' => array(
+            'filepath' => array(
+                'nameCallback' => '',
+                'append' => '',
+                'prepend' => '',
+                'tempDir' => '',
+                'uploadDir' => '',
+                'finalPath' => '',
+                'dbColumn' => 'filepath',
+                'metaColumns' => array(),
+                'defaultPath' => '',
+                'overwrite' => false,
+                'stopSave' => true,
+                'allowEmpty' => true,
+                'transforms' => array(),
+                'transport' => array()
+            )
+        ),
+        'Uploader.FileValidation' => array(
+            'filepath' => array(
+                'extension' => array('gif', 'jpg', 'png', 'jpeg'),
+                'required' => array(
+                    'value' => true,
+                    'error' => 'File required'
+                )
+            )
         )
-    )
-);    
+    );
     
     function formatFileName($name, $field, $file) {
         return sprintf('%s-%s-%s', $name, $file->size(), time());
@@ -155,7 +165,9 @@ public $actsAs = array(
     
      // Lets change some settings
     public function beforeUpload($options) {
-        $options['append'] = '-original';
+        debug($this->data); die;
+        $options['finalPath'] = '/image/uploads/';
+        $options['uploadDir'] = WWW_ROOT . $options['finalPath'];
      
         return $options;
     }
@@ -167,11 +179,4 @@ public $actsAs = array(
      
         return $options;
     }
-     
-    // And even change the S3 folder
-    public function beforeTransport($options) {
-        $options['folder'] = 'img/' . $this->data[$this->alias]['slug'] . '/';
-     
-        return $options;
-    }    
 }
