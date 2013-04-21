@@ -21,6 +21,7 @@
 </head>
 <body class="home">
     <header>
+        <?php echo $this->element('contact') ?>
         <section class="inner">
             <h1><a href="/"><img src="/images/abismo-logo.png" alt="ab.ismo || Oficina de arquitectura"></a></h1>
             <nav>
@@ -33,11 +34,7 @@
             </nav>
         </section>
     </header>   
-    <div id="content">
-        <?php echo $this->Session->flash(); ?>
-
-        <?php echo $this->fetch('content'); ?>       
-    </div>
-    <?php echo $this->element('contact') ?> 
+    <?php echo $this->Session->flash(); ?>
+    <?php echo $this->fetch('content'); ?>
 </body>
 </html>
