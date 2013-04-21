@@ -21,21 +21,58 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-
-    Router::connect('/', array('controller' => 'home', 'action' => 'view', 'home'));
-    Router::connect('/home/*', array('controller' => 'home', 'action' => 'view'));
     
+    # HOME
+    Router::connect(
+        '/', 
+        array('controller' => 'home', 'action' => 'view')
+    );
+    Router::connect(
+        '/home/*', 
+        array('controller' => 'home', 'action' => 'view')
+    );
+    
+    #  PROYECTOS/PROJECTS
     //Router::connect('/proyectos/:action/*', array('controller'=>'projects'));
-    Router::connect('/proyectos', array('controller'=>'projects', 'action' => 'index'));
-    Router::connect('/proyectos/detalle/*', array('controller'=>'projects', 'action' => 'view'));    
-
-    //Router::connect('/concursos/:action/*', array('controller'=>'tenders'));
-    Router::connect('/concursos', array('controller'=>'tenders', 'action' => 'index'));
-    Router::connect('/concursos/detalle/*', array('controller'=>'tenders', 'action' => 'view'));
+    Router::connect(
+        '/proyectos', 
+        array('controller'=>'projects', 'action' => 'index')
+    );
+    Router::connect(
+        '/proyectos/detalle/:id-:slug', 
+        array('controller'=>'projects', 'action' => 'view'),
+        array(
+            'pass' => array('id'),
+            'id' => '[0-9]+'
+        )
+    );    
     
-    Router::connect('/estudio', array('controller'=>'studio', 'action' => 'index', 'index'));  
-         
-    Router::connect('/admin', array('controller'=>'app', 'action' => 'index', 'admin_index'));       
+    # CONCURSOS/TENDERS
+    //Router::connect('/concursos/:action/*', array('controller'=>'tenders'));
+    Router::connect(
+        '/concursos', 
+        array('controller'=>'tenders', 'action' => 'index')
+    );
+    Router::connect(
+        '/concursos/detalle/:id-:slug', 
+        array('controller'=>'tenders', 'action' => 'view'),
+        array(
+            'pass' => array('id'),
+            'id' => '[0-9]+'
+        )        
+    );
+    
+    # ESTUDIO/STUDY
+    Router::connect(
+        '/estudio', 
+        array('controller'=>'studio', 'action' => 'index', 'index')
+    );  
+    
+    # ADMIN
+    Router::connect(
+        '/admin', 
+        array('controller'=>'app', 'action' => 'index', 'admin_index')
+    );       
         
 /**
  * Load all plugin routes. See the CakePlugin documentation on

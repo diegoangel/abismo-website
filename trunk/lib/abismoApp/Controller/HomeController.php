@@ -1,78 +1,79 @@
 <?php
 /**
- * Static content controller.
- *
- * This file will render views from views/pages/
- *
- * PHP 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.Controller
- * @since         CakePHP(tm) v 0.2.9
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
+ * Abismo 
+ * 
+ * @package abismoApp 
+ */ 
 App::uses('AppController', 'Controller');
 
 /**
- * Static content controller
+ * Home controller
  *
- * Override this controller by placing a copy in controllers directory of an application
- *
- * @package       app.Controller
- * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
+ * @author Leandro Baratucci
+ * @subpackage abismoApp.Controller
  */
 class HomeController extends AppController {
 
 /**
- *
- * @var array
+ * Model
+ * 
+ * @var array $uses
  */
-    public $uses = array('project');
+    public $uses = array('Project');
     
+/**
+ * Layout
+ * 
+ * @var string $layout
+ */     
     public $layout = 'home';
-    
+
+/**
+ * Helpers
+ * 
+ * @var array
+ */     
+    public $helpers = array(
+        'Slug' => array(
+            'className' => 'Slug'
+        )
+    );
+
+/**
+ * Establece que metodos estan disponibles sin autentificacion
+ * 
+ * @return void
+ */ 
     public function beforeFilter() {
 
         parent::beforeFilter();
         $this->Auth->allow('index', 'view');
     }
-    
+
     public function index() {
     
-    }    
+    }
 
 /**
- * Home view
- *
+ * Mostramos los datos de un proyecto, obtenido de forma aleatoria
+ * 
  * @return void
- */
+ */     
     public function view() {
-        $path = func_get_args();
-
-        $count = count($path);
-        if (!$count) {
-            $this->redirect('/');
+        
+        $data = array();
+        $project = $this->Project->getRamdom();
+        $data = array(
+            'id' => $project['Project']['id'],
+            'title' => $project['Project']['title'],
+            'subtitle' => $project['Project']['subtitle']
+        );
+        foreach($project['Image'] as $image) {
+            if($image['type'] == 'home') {
+                $data['image'] = $image['filepath'];
+                $data['alt'] = $image['alt'];
+            }
         }
-        $page = $subpage = $title_for_layout = null;
-
-        if (!empty($path[0])) {
-            $page = $path[0];
-        }
-        if (!empty($path[1])) {
-            $subpage = $path[1];
-        }
-        if (!empty($path[$count - 1])) {
-            $title_for_layout = Inflector::humanize($path[$count - 1]);
-        }
-        $this->set(compact('page', 'subpage', 'title_for_layout'));
-        $this->render(implode('/', $path));
+        $this->set(compact('data'));
     }
 }

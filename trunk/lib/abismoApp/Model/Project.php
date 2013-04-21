@@ -14,7 +14,7 @@ class Project extends AppModel {
  * @var string
  */
     public $displayField = 'title';
-
+    
 /**
  * Validation rules
  *
@@ -152,8 +152,8 @@ class Project extends AppModel {
         'Image' => array(
             'className' => 'Image',
             'foreignKey' => 'referenced_id',
-            'dependent' => false,
-            'conditions' => '',
+            'dependent' => true,
+            'conditions' => array('Image.referenced_type' => 'project'),
             'fields' => '',
             'order' => '',
             'limit' => '',
@@ -165,8 +165,8 @@ class Project extends AppModel {
         'Video' => array(
             'className' => 'Video',
             'foreignKey' => 'referenced_id',
-            'dependent' => false,
-            'conditions' => '',
+            'dependent' => true,
+            'conditions' => array('Video.referenced_type' => 'project'),
             'fields' => '',
             'order' => '',
             'limit' => '',
@@ -176,5 +176,30 @@ class Project extends AppModel {
             'counterQuery' => ''
         )
     );
-
+/**
+ * Selecciona un proyecto al en forma aleatoria de la DDBB
+ * 
+ * @throws Exception
+ * @return array
+ */
+    public function getRamdom() {
+        try {
+            $offset = $this->find('first', array(
+                'fields' => 'FLOOR(RAND() * COUNT(*)) AS offset',
+                'conditions' => 'show_in_home = true'
+            ));
+            $project = $this->find('first', array(
+                'conditions' => 'show_in_home = true',
+                'offset' => $offset[0]['offset'],
+                'limit' => 1
+            ));
+            if (empty($project)) {
+                throw new Exception(__('No data was found that meets the specified conditions'));
+            }            
+            return $project;
+        } catch(Exception $e) {
+            throw $e;
+            $this->log($e->getMessage(), 'debug');
+        } 
+    }
 }
