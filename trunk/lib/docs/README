@@ -1,3 +1,17 @@
+2013.04.19
+
+La barra de debug del plugin Debug Toolkit se ve unicamente en entornos de locales, o sea se ve solo si se navega el sitio en local con ip 127.0.0.1.
+
+Se añadio internacionalizacion y localizacion a los archivos. El archivo .po de las traducciones esta en lib/abismoApp/Locale/spa/LC_MESSAGES. PENDIENTE: terminar las traducciones. IMPORTANTE: no traducir a mano en el codigo fuente
+
+El schema de la DDBB se encuentra en lib/docs
+
+Hay un virtual host de ejemplo para Apache. Ya que la estructura de CakePHP fue alterada para conformar los requerimientos del proyecto, se apunto el ROOT DIR de la aplicacion a otro directorio que el default de cakePHP
+
+Accesos por default seccion de administracion, User: admin, Pass: admin (cambiar). URL de acceso http://{site}/admin
+
+-------------------------------------------------------------------------
+
 08.04.2013
 
 Hice unas reformas a la estructura de CakePHP, por eso lo vas a ver diferente. Aca te explico para que no te desorientes... 
@@ -20,23 +34,23 @@ Virtual host del sitio. Ejemplo de configuracion...
 NO APUNTAR EL DOCUMENTROOT A webroot/, APUNTARLO AL ROOT DEL SITIO
 
 <VirtualHost *:80>
-	ServerAdmin diegoangel77@gmail.com
-	ServerName abismo.lc
-	ServerAlias www.abismo.lc
-	DocumentRoot /home/diego/Public/test/abismo
+    ServerAdmin diegoangel77@gmail.com
+    ServerName abismo.lc
+    ServerAlias www.abismo.lc
+    DocumentRoot /home/diego/Public/test/abismo
 
-	<Directory /home/diego/Public/test/abismo>
-		Options Indexes FollowSymLinks MultiViews
-		AllowOverride All 
-		Order allow,deny
-		allow from all
-	</Directory>
+    <Directory /home/diego/Public/test/abismo>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All 
+        Order allow,deny
+        allow from all
+    </Directory>
 
-	ErrorLog ${APACHE_LOG_DIR}/abismo_error.log
+    ErrorLog ${APACHE_LOG_DIR}/abismo_error.log
 
-	LogLevel warn
+    LogLevel warn
 
-	CustomLog ${APACHE_LOG_DIR}/abismo_access.log combined
+    CustomLog ${APACHE_LOG_DIR}/abismo_access.log combined
 </VirtualHost>
 
 --------------------------------------------------
