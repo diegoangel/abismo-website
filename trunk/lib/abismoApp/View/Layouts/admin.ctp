@@ -4,12 +4,12 @@
         <?php echo $this->Html->charset(); ?>   
         <title><?php echo __('ab.ismo Admin'); ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <?php echo $this->Html->css('bootstrap.css') ?>
+        <?php echo $this->Html->css('bootstrap/bootstrap.css') ?>
         <style type="text/css">
             body{padding-top:60px;padding-bottom:40px}
             .sidebar-nav{padding:9px 0}
         </style>
-        <?php echo $this->Html->css('bootstrap-responsive.css') ?>
+        <?php echo $this->Html->css('bootstrap/bootstrap-responsive.css') ?>
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -18,6 +18,8 @@
             echo $this->fetch('meta');
             echo $this->fetch('css');    
             echo $this->Html->script('jquery-1.9.1.min.js');
+            echo $this->Html->script('bootstrap/bootstrap.min.js');
+            echo $this->Html->script('bootstrap/bootstrap.file-input.js');
             echo $this->fetch('script');
             echo $this->Html->script('lib/tinymce/jquery.tinymce.js');
             echo $this->Html->script('lib/tinymce/tiny_mce.js'); 
@@ -60,7 +62,7 @@
             <div class="row-fluid">
                 <hr>
                 <div class="pull-right">
-                    <a href="#" class="label">© Inima Interactive</a>
+                    <a href="http://www.inimainteractive.com/" class="label">© Inima Interactive</a>
                 </div>
                 <div>
                     <?php //echo str_replace('class="cake-sql-log"', 'class="table table-bordered table-striped"', $this->element('sql_dump')); ?>

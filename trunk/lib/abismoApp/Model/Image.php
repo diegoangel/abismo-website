@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('ArValidation', 'Localized.Validation');
 /**
  * Image Model
  *
@@ -116,4 +117,37 @@ class Image extends AppModel {
             'order' => ''
         )
     );
+    
+public $actsAs = array(
+    'Uploader.Attachment' => array(
+        'image' => array(
+            'nameCallback' => '',
+            'append' => '',
+            'prepend' => '',
+            'tempDir' => '/tmp',
+            'uploadDir' => '',
+            'finalPath' => '',
+            'dbColumn' => '',
+            'metaColumns' => array(),
+            'defaultPath' => '',
+            'overwrite' => false,
+            'stopSave' => true,
+            'allowEmpty' => true,
+            'transforms' => array(),
+            'transport' => array()
+        )
+    )
+);    
+    
+    function formatFileName($name, $field, $file) {
+        return md5($name);
+    }
+
+    public function beforeSave($options = array()) {
+        if (!empty($this->data)) {
+            // do something
+            //die(var_dump($this->data));
+        }
+        return true;
+    }    
 }
