@@ -8,6 +8,7 @@
         <style type="text/css">
             body{padding-top:60px;padding-bottom:40px}
             .sidebar-nav{padding:9px 0}
+            #form-help{margin: 0 0 10px 6px}
         </style>
         <?php echo $this->Html->css('bootstrap/bootstrap-responsive.css') ?>
         <!--[if lt IE 9]>
@@ -20,6 +21,7 @@
             echo $this->Html->script('jquery-1.9.1.min.js');
             echo $this->Html->script('bootstrap/bootstrap.min.js');
             echo $this->Html->script('bootstrap/bootstrap.file-input.js');
+            echo $this->Html->script('bootstrap/bootstrap.typeahead.js');
             echo $this->Html->script('tinymce/jquery.tinymce.js');
             echo $this->Html->script('tinymce/tiny_mce.js'); 
             echo $this->fetch('script');            
@@ -68,6 +70,11 @@
                     <?php //echo str_replace('class="cake-sql-log"', 'class="table table-bordered table-striped"', $this->element('sql_dump')); ?>
                 </div>                
             </div>
-        </div>           
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("[rel=tooltip]").tooltip({ placement: 'right'});
+            });         
+        </script>
     </body>
 </html>

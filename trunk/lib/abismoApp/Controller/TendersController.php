@@ -236,5 +236,5 @@ class TendersController extends AppController {
         }
         $this->Session->setFlash(__('Tender was not deleted'));
         $this->redirect(array('action' => 'index'));
-    }
+    }   
 }

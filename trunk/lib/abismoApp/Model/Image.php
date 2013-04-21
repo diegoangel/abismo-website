@@ -124,7 +124,7 @@ public $actsAs = array(
             'nameCallback' => '',
             'append' => '',
             'prepend' => '',
-            'tempDir' => '/tmp',
+            'tempDir' => '',
             'uploadDir' => '',
             'finalPath' => '',
             'dbColumn' => '',
@@ -140,14 +140,38 @@ public $actsAs = array(
 );    
     
     function formatFileName($name, $field, $file) {
-        return md5($name);
+        return sprintf('%s-%s-%s', $name, $file->size(), time());
     }
+
+// Callbacks
 
     public function beforeSave($options = array()) {
         if (!empty($this->data)) {
             // do something
-            //die(var_dump($this->data));
+            die(var_dump($this->data));
         }
         return true;
+    }
+    
+     // Lets change some settings
+    public function beforeUpload($options) {
+        $options['append'] = '-original';
+     
+        return $options;
+    }
+     
+    // Or maybe place the files in files/uploads/resize/
+    public function beforeTransform($options) {
+        $options['finalPath'] = 'files/uploads/' . $options['method'] . '/' 
+        $options['uploadDir'] = WWW_ROOT . $options['finalPath'];
+     
+        return $options;
+    }
+     
+    // And even change the S3 folder
+    public function beforeTransport($options) {
+        $options['folder'] = 'img/' . $this->data[$this->alias]['slug'] . '/';
+     
+        return $options;
     }    
 }

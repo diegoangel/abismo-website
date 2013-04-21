@@ -17,13 +17,15 @@
         <fieldset>
             <legend><?php echo __('Add Image'); ?></legend>
         <?php
-            echo $this->Form->hidden('referenced_type');          
+            echo $this->Form->hidden('referenced_id');
+            echo $this->Form->hidden('referenced_type');
             echo $this->Form->input(
-                'referenced_id',
+                'belongsToId',
                 array(
                     'type' => 'text',
                     'label' => __('Related to ID'),
-                    'data-provide' => 'typeahead'
+                    'after' => '',
+                    'help' => 'Comience a escribir el nombre del proyecto o concurso al cual desea relacionar la imagen e inmediatamente se desplegara una lista con las coincidencias encontradas.'
                 )
             );
             echo $this->Form->input(
@@ -33,7 +35,9 @@
                     'slide' => 'Destacada', 
                     'thumb' => 'Thumbnail'), 
                     'empty' => 'Seleccione un tipo',
-                    'label' => __('Image type')
+                    'label' => __('Image type'),
+                    'after' => '',                    
+                    'help'  => 'Seleccione el tipo de imagen que desea guardar, Home, Destacada o Thumbnail'
                 )
             );     
             echo $this->Form->input(
@@ -54,4 +58,25 @@
         </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
+
+<script type="text/javascript"> 
+    $.get('/GetProjectsAndTendersService/getProjectsAndTenders', function(data) {
+        data = $.parseJSON(data)
+        $('#ImageBelongsToId').typeahead({
+            source: data,
+            display: 'title',
+            itemSelected: function(selected, value, text) {
+                    $('#ImageReferencedId').val(value);
+                    $('#ImageReferencedType').val(function() {
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].title == text) {
+                                return data[i].type
+                            }
+                        }
+                    });
+                },
+            items: 10
+        });  
+    });
+</script>
 

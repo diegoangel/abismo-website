@@ -49,7 +49,6 @@ class ImagesController extends AppController {
                 $this->Session->setFlash(__('The image could not be saved. Please, try again.'));
             }
         }
-        $this->set('belongsToIds');
     }
 
 /**
