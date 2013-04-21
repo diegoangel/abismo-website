@@ -150,9 +150,9 @@ class Tender extends AppModel {
         'Image' => array(
             'className' => 'Image',
             'foreignKey' => 'referenced_id',
-            'dependent' => false,
-            'conditions' => '',
-            'fields' => '',
+            'dependent' => true,
+            'conditions' => array('referenced_type' => 'tender'),
+            'fields' => array('id', 'type', 'filename', 'filepath', 'alt', 'active'),
             'order' => '',
             'limit' => '',
             'offset' => '',
@@ -163,9 +163,9 @@ class Tender extends AppModel {
         'Video' => array(
             'className' => 'Video',
             'foreignKey' => 'referenced_id',
-            'dependent' => false,
-            'conditions' => '',
-            'fields' => '',
+            'dependent' => true,
+            'conditions' => array('referenced_type' => 'tender'),
+            'fields' => array('id', 'embed_code', 'active'),
             'order' => '',
             'limit' => '',
             'offset' => '',
@@ -175,4 +175,5 @@ class Tender extends AppModel {
         )
     );
 
+    public $actsAs = array('Containable');
 }

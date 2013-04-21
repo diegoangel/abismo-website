@@ -93,10 +93,48 @@ class ProjectsController extends AppController {
  * @return void
  */
     public function view($id = null) {
+        $this->layout = 'project_detail';
         if (!$this->Project->exists($id)) {
             throw new NotFoundException(__('Invalid project'));
         }
-        $options = array('conditions' => array('Project.' . $this->Project->primaryKey => $id));
+        $pagination = $this->Project->find('neighbors', array(
+            'field' => 'id', 
+            'value' => $id, 
+            'recursive' => false,
+            'fields' => array(
+                'id', 
+                'title'
+            ),
+            'conditions' => array(
+                'active' => true
+            )
+        ));
+        $options = array(
+            'contain' => array(
+                'Image' => array(
+                    'fields' => array(
+                        'filepath', 
+                        'alt'
+                    ),
+                    'conditions' => array(
+                        'active' => true,
+                        'type' => 'slide',
+                        'referenced_type' => 'project'
+                    )
+                ),
+                'Video' => array(
+                    'fields' => array('embed_code'),
+                    'conditions' => array(
+                        'active' => true , 
+                        'referenced_type' => 'project'
+                    ),
+                )
+            ),        
+            'conditions' => array(
+                'Project.' . $this->Project->primaryKey => $id
+            )
+        );
+        $this->set('pagination', $pagination);
         $this->set('project', $this->Project->find('first', $options));
     }
     

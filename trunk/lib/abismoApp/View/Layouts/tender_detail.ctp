@@ -35,13 +35,13 @@
             </nav>
             <nav class="submenu">
                 <ul>
-                    <li><a href="/proyectos" class="all">all work</a></li>
+                    <li><a href="/tender" class="all">all work</a></li>
                     <li>
                         <?php 
                             if (is_null($pagination['prev'])) { 
                                 $prev = '#';
                             } else {
-                                $prev = '/proyectos/detalle/' . $pagination['prev']['Project']['id'] . '-' . $this->Slug->transform($pagination['prev']['Project']['title']);
+                                $prev = '/concursos/detalle/' . $pagination['prev']['Tender']['id'] . '-' . $this->Slug->transform($pagination['prev']['Tender']['title']);
                             }
                         ?>
                         <a rel="prev" href="<?php echo $prev ?>" class="">prev project</a>
@@ -51,7 +51,7 @@
                             if (is_null($pagination['next'])) { 
                                 $next = '#';
                             } else {
-                                $next = '/proyectos/detalle/' . $pagination['next']['Project']['id'] . '-' . $this->Slug->transform($pagination['next']['Project']['title']);
+                                $next = '/concursos/detalle/' . $pagination['next']['Tender']['id'] . '-' . $this->Slug->transform($pagination['next']['Tender']['title']);
                             }
                         ?>                        
                         <a rel="next" href="<?php echo $next ?>" class="">next project</a>

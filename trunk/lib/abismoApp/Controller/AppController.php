@@ -53,7 +53,7 @@ class AppController extends Controller {
             'className' => 'BootstrapPaginator'
         ),
         'Html', 
-        //'Fancybox.Fancybox'
+        'Fancybox.Fancybox'
     );
 
 /**

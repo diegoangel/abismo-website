@@ -7,6 +7,19 @@ App::uses('AppController', 'Controller');
  */
 class TendersController extends AppController {
 
+/**
+ * Helpers
+ * 
+ * @var array
+ */     
+    public $helpers = array(
+        'Slug' => array(
+            'className' => 'Slug'
+        ),
+        'Paginator'
+    );
+
+    
     public function beforeFilter() {
 
         parent::beforeFilter();
@@ -19,8 +32,57 @@ class TendersController extends AppController {
  * @return void
  */
     public function index() {
-        $this->Tender->recursive = 0;
-        $this->set('tenders', $this->paginate());
+        $featuredTenders = $this->Tender->find('all', array(
+            'contain' => array(
+                'Image' => array(
+                    'fields' => array(
+                        'filepath', 
+                        'alt'
+                    ),
+                    'conditions' => array(
+                        'active' => true,
+                        'type' => 'slide',
+                        'referenced_type' => 'tender'                        
+                    )
+                )
+            ),        
+            'fields' => array(
+                'id', 
+                'title', 
+                'subtitle'
+            ),              
+            'conditions' => array(          
+                'featured' => true,
+                'active' => true
+            )
+        ));
+        $this->paginate = array(
+            'contain' => array(
+                'Image' => array(
+                    'fields' => array(
+                        'filepath', 
+                        'alt'
+                    ),
+                    'conditions' => array(
+                        'active' => true,
+                        'type' => 'thumb',
+                        'referenced_type' => 'tender'
+                    )
+                )
+            ),
+            'fields' => array(
+                'id', 
+                'title', 
+                'subtitle'
+            ),
+            'conditions' => array(
+                'active' => true,
+                'featured' => false
+            ),
+            'limit' => 6
+        );
+        $this->set('featuredTenders', $featuredTenders);
+        $this->set('otherTenders', $this->paginate());
     }
 
 /**
@@ -31,12 +93,51 @@ class TendersController extends AppController {
  * @return void
  */
     public function view($id = null) {
+        $this->layout = 'tender_detail';
         if (!$this->Tender->exists($id)) {
-            throw new NotFoundException(__('Invalid tender'));
+            throw new NotFoundException(__('Invalid Tender'));
         }
-        $options = array('conditions' => array('Tender.' . $this->Tender->primaryKey => $id));
+        $pagination = $this->Tender->find('neighbors', array(
+            'field' => 'id', 
+            'value' => $id, 
+            'recursive' => false,
+            'fields' => array(
+                'id', 
+                'title'
+            ),
+            'conditions' => array(
+                'active' => true
+            )
+        ));
+        $options = array(
+            'contain' => array(
+                'Image' => array(
+                    'fields' => array(
+                        'filepath', 
+                        'alt'
+                    ),
+                    'conditions' => array(
+                        'active' => true,
+                        'type' => 'slide',
+                        'referenced_type' => 'tender'
+                    )
+                ),
+                'Video' => array(
+                    'fields' => array('embed_code'),
+                    'conditions' => array(
+                        'active' => true , 
+                        'referenced_type' => 'tender'
+                    ),
+                )
+            ),        
+            'conditions' => array(
+                'Tender.' . $this->Tender->primaryKey => $id
+            )
+        );
+        $this->set('pagination', $pagination);
         $this->set('tender', $this->Tender->find('first', $options));
     }
+
 
 /**
  * admin_index method
