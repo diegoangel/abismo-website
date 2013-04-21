@@ -162,7 +162,7 @@ public $actsAs = array(
      
     // Or maybe place the files in files/uploads/resize/
     public function beforeTransform($options) {
-        $options['finalPath'] = 'files/uploads/' . $options['method'] . '/' 
+        $options['finalPath'] = 'files/uploads/' . $options['method'] . '/';
         $options['uploadDir'] = WWW_ROOT . $options['finalPath'];
      
         return $options;
