@@ -20,7 +20,7 @@
             echo $this->Form->hidden('referenced_id');
             echo $this->Form->hidden('referenced_type');
             echo $this->Form->input(
-                'belongsToId',
+                'belongsToName',
                 array(
                     'type' => 'text',
                     'label' => __('Related to ID'),
