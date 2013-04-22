@@ -22,10 +22,9 @@
             <tr>
                 <th><?php echo $this->Paginator->sort('id'); ?></th>
                 <th><?php echo $this->Paginator->sort('title'); ?></th>
+                <th><?php echo __('Imagenes'); ?></th>
                 <th><?php echo $this->Paginator->sort('featured'); ?></th>
                 <th><?php echo $this->Paginator->sort('active'); ?></th>
-                <th><?php echo $this->Paginator->sort('created'); ?></th>
-                <th><?php echo $this->Paginator->sort('modified'); ?></th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>        
         </thead>
@@ -34,10 +33,9 @@
             <tr>
                 <td><?php echo h($tender['Tender']['id']); ?>&nbsp;</td>
                 <td><?php echo h($tender['Tender']['title']); ?>&nbsp;</td>
-                <td><?php echo h($tender['Tender']['featured']); ?>&nbsp;</td>
-                <td><?php echo h($tender['Tender']['active']); ?>&nbsp;</td>
-                <td><?php echo h($tender['Tender']['created']); ?>&nbsp;</td>
-                <td><?php echo h($tender['Tender']['modified']); ?>&nbsp;</td>
+                <td><a href="/admin/images/getByTenderId/<?php echo $tender['Tender']['id'] ?>">Ver imagenes</a>&nbsp</td>
+                <td><?php echo (h($tender['Tender']['featured'])) ? 'Si' : 'No'; ?>&nbsp;</td>
+                <td><?php echo (h($tender['Tender']['active'])) ? 'Si' : 'No'; ?>&nbsp;</td>
                 <td>
                     <?php echo $this->Html->link(__('View'), array('action' => 'view', $tender['Tender']['id']), array('class' => 'btn btn-info')); ?>
                 </td>
@@ -59,9 +57,13 @@
         <div class="pagination">
             <ul>
                 <?php echo $this->Paginator->first(); ?>
-                <?php echo $this->Paginator->prev(); ?>
+                <?php if($this->Paginator->hasPrev()): ?>
+                    <?php echo $this->Paginator->prev(); ?>
+                <?php endif; ?>
                 <?php echo $this->Paginator->numbers(); ?>
-                <?php echo $this->Paginator->next(); ?>
+                <?php if($this->Paginator->hasNext()): ?>
+                    <?php echo $this->Paginator->next(); ?>                
+                <?php endif; ?>
                 <?php echo $this->Paginator->last(); ?>
             </ul>
         </div>

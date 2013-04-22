@@ -24,8 +24,6 @@
                 <th><?php echo $this->Paginator->sort('referenced_type'); ?></th>
                 <th><?php echo $this->Paginator->sort('title'); ?></th>
                 <th><?php echo $this->Paginator->sort('active'); ?></th>
-                <th><?php echo $this->Paginator->sort('created'); ?></th>
-                <th><?php echo $this->Paginator->sort('modified'); ?></th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
         </thead>
@@ -35,9 +33,7 @@
                 <td><?php echo h($video['Video']['id']); ?>&nbsp;</td>
                 <td><?php echo h($video['Video']['referenced_type']); ?>&nbsp;</td>
                 <td><?php echo h($video['Video']['title']); ?>&nbsp;</td>
-                <td><?php echo h($video['Video']['active']); ?>&nbsp;</td>
-                <td><?php echo h($video['Video']['created']); ?>&nbsp;</td>
-                <td><?php echo h($video['Video']['modified']); ?>&nbsp;</td>
+                <td><?php echo (h($video['Video']['active'])) ? 'Si' : 'No'; ?>&nbsp;</td>
                 <td>
                     <?php echo $this->Html->link(__('View'), array('action' => 'view', $video['Video']['id']), array('class' => 'btn btn-info')); ?>
                 </td>
@@ -59,9 +55,13 @@
         <div class="pagination">
             <ul>
                 <?php echo $this->Paginator->first(); ?>
-                <?php echo $this->Paginator->prev(); ?>
+                <?php if($this->Paginator->hasPrev()): ?>
+                    <?php echo $this->Paginator->prev(); ?>
+                <?php endif; ?>
                 <?php echo $this->Paginator->numbers(); ?>
-                <?php echo $this->Paginator->next(); ?>
+                <?php if($this->Paginator->hasNext()): ?>
+                    <?php echo $this->Paginator->next(); ?>                
+                <?php endif; ?>
                 <?php echo $this->Paginator->last(); ?>
             </ul>
         </div>
