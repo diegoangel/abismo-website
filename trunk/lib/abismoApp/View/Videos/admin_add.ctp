@@ -27,3 +27,23 @@
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 
+<script type="text/javascript"> 
+    $.get('/GetProjectsAndTendersService/getProjectsAndTenders', function(data) {
+        data = $.parseJSON(data)
+        $('#ImageBelongsToId').typeahead({
+            source: data,
+            display: 'title',
+            itemSelected: function(selected, value, text) {
+                    $('#ImageReferencedId').val(value);
+                    $('#ImageReferencedType').val(function() {
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].title == text) {
+                                return data[i].type
+                            }
+                        }
+                    });
+                },
+            items: 10
+        });  
+    });
+</script>

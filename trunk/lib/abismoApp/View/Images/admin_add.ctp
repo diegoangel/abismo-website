@@ -63,7 +63,7 @@
 <script type="text/javascript"> 
     $.get('/GetProjectsAndTendersService/getProjectsAndTenders', function(data) {
         data = $.parseJSON(data)
-        $('#ImageBelongsToId').typeahead({
+        $('#ImageBelongsToName').typeahead({
             source: data,
             display: 'title',
             itemSelected: function(selected, value, text) {

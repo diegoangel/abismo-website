@@ -148,13 +148,28 @@ class Image extends AppModel {
             )
         )
     );
-    
+
+/**
+ * Cambia el nombre del archivo a subir por uno con menos posibilidades duplicarse
+ * 
+ * @param string $file
+ * @param string $field
+ * æparam string $name
+ * @return string
+ */ 
     function formatFileName($name, $field, $file) {
         return sprintf('%s-%s-%s', $name, $file->size(), time());
     }
 
 // Callbacks
 
+
+/**
+ * Callback ejecutado antes de gusardar los datos en la DDBB
+ * 
+ * @param array $options
+ * @return array
+ */ 
     public function beforeSave($options = array()) {
         if (!empty($this->data)) {
             // do something
@@ -163,18 +178,40 @@ class Image extends AppModel {
         return true;
     }
     
-     // Lets change some settings
+/**
+ * Callback ejecutado antes de subir la imagen
+ * 
+ * @param array $options
+ * @return array
+ */ 
     public function beforeUpload($options) {
-        debug($this->data); die;
-        $options['finalPath'] = '/image/uploads/';
+        $options['finalPath'] = 'image'. DS . $this->data['Image']['referenced_type'] . DS . $this->data['Image']['referenced_id'] . DS;
         $options['uploadDir'] = WWW_ROOT . $options['finalPath'];
-     
+        try {
+            if (!file_exists($options['uploadDir'])) {
+                if (!is_writable($options['uploadDir'])) {
+                    throw new Exception(__('Upload fails, the directory does not exists or is not writable'));
+                }
+                if (!mkdir($options['uploadDir'], 0755, true)) {
+                    throw new Exception(__('Can not create the upload directory'));
+                }
+            }
+        } catch(Exception $e) {
+            throw $e;
+            $this->log($e->getMessage(), 'debug');            
+        }
+         
         return $options;
     }
      
-    // Or maybe place the files in files/uploads/resize/
+/**
+ * Callback ejecutado antes de cualquier transformacion (resize, crop, etc) de la imagen
+ * 
+ * @param array $options
+ * @return array
+ */ 
     public function beforeTransform($options) {
-        $options['finalPath'] = 'files/uploads/' . $options['method'] . '/';
+        $options['finalPath'] = 'image'. DS . $this->data['Image']['referenced_type'] . DS . $this->data['Image']['referenced_id'] . DS . 'thumbnails' . DS;
         $options['uploadDir'] = WWW_ROOT . $options['finalPath'];
      
         return $options;
