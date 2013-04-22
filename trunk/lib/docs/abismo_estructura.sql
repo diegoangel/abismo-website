@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 21-04-2013 a las 07:34:45
+-- Tiempo de generación: 22-04-2013 a las 15:43:59
 -- Versión del servidor: 5.5.30
 -- Versión de PHP: 5.4.4-14
 
@@ -96,16 +96,17 @@ CREATE TABLE IF NOT EXISTS `images` (
   `referenced_id` int(11) NOT NULL,
   `referenced_type` enum('project','tender') NOT NULL,
   `type` enum('home','slide','thumb') NOT NULL,
-  `filename` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `filepath` varchar(255) NOT NULL,
   `alt` varchar(100) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
+  `small_image` varchar(255) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `referenced_id` (`referenced_id`),
   KEY `referenced_type` (`referenced_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=50 ;
 
 -- --------------------------------------------------------
 
@@ -190,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `videos` (
   PRIMARY KEY (`id`),
   KEY `referenced_id` (`referenced_id`),
   KEY `referenced_type` (`referenced_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
