@@ -19,8 +19,18 @@
             <legend><?php echo __('Edit Video'); ?></legend>
         <?php
         echo $this->Form->input('id');
-        echo $this->Form->input('referenced_id');
-        echo $this->Form->input('reference_type');
+            echo $this->Form->hidden('referenced_id');
+            echo $this->Form->hidden('referenced_type');
+            echo $this->Form->input(
+                'belongsToName',
+                array(
+                    'type' => 'text',
+                    'label' => __('Related to ID'),
+                    'autocomplete' => 'off',                    
+                    'after' => '',
+                    'help' => 'Comience a escribir el nombre del proyecto o concurso al cual desea relacionar la imagen e inmediatamente se desplegara una lista con las coincidencias encontradas.'
+                )
+            );
         echo $this->Form->input('title');
         echo $this->Form->input('embed_code');
         echo $this->Form->input('active');
@@ -28,3 +38,29 @@
         </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
+
+<script type="text/javascript"> 
+    $.get('/GetProjectsAndTendersService/getProjectsAndTenders', function(data) {
+        data = $.parseJSON(data)
+        for (var j in data) {
+            if (data[j].id == $('#VideoReferencedId').val() && data[j].type == $('#VideoReferencedType').val()) {
+                $('#VideoBelongsToName').val(data[j].title);
+            }
+        }        
+        $('#VideoBelongsToName').typeahead({
+            source: data,
+            display: 'title',
+            itemSelected: function(selected, value, text) {
+                    $('#VideoReferencedId').val(value);
+                    $('#VideoReferencedType').val(function() {
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].title == text) {
+                                return data[i].type
+                            }
+                        }
+                    });
+                },
+            items: 10
+        });  
+    });
+</script>

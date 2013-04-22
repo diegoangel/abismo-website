@@ -15,7 +15,7 @@ class Image extends AppModel {
  *
  * @var string
  */
-    public $displayField = 'filename';
+    public $displayField = 'title';
 
 /**
  * Validation rules
@@ -26,7 +26,7 @@ class Image extends AppModel {
         'referenced_id' => array(
             'numeric' => array(
                 'rule' => array('numeric'),
-                //'message' => 'Your custom message here',
+                'message' => 'Error, this is not a number',
                 //'allowEmpty' => false,
                 //'required' => false,
                 //'last' => false, // Stop validation after this rule
@@ -36,27 +36,27 @@ class Image extends AppModel {
         'referenced_type' => array(
             'inlist' => array(
                 'rule' => array('inlist', array('project', 'tender')),
-                //'message' => 'Your custom message here',
+                'message' => 'The item you have selected  is invalid',
                 //'allowEmpty' => false,
                 //'required' => false,
                 //'last' => false, // Stop validation after this rule
                 //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
         ),
-        'filename' => array(
-            //'notempty' => array(
-                //'rule' => array('notempty'),
-                //'message' => 'Your custom message here',
+        'title' => array(
+            'notempty' => array(
+                'rule' => array('notempty'),
+                'message' => 'The title can not be empty'
                 //'allowEmpty' => false,
                 //'required' => false,
                 //'last' => false, // Stop validation after this rule
                 //'on' => 'create', // Limit validation to 'create' or 'update' operations
-            //),
+            ),
         ),
         'type' => array(
             'inlist' => array(
                 'rule' => array('inlist', array('home', 'slide', 'thumb')),
-                //'message' => 'Your custom message here',
+                'message' => 'The item you have selected is invalid',
                 //'allowEmpty' => false,
                 //'required' => false,
                 //'last' => false, // Stop validation after this rule
@@ -83,6 +83,16 @@ class Image extends AppModel {
                 //'on' => 'create', // Limit validation to 'create' or 'update' operations
             ),
         ),
+        'small_image' => array(
+            //'notempty' => array(
+                //'rule' => array('notempty'),
+                //'message' => 'Your custom message here',
+                //'allowEmpty' => false,
+                //'required' => false,
+                //'last' => false, // Stop validation after this rule
+                //'on' => 'create', // Limit validation to 'create' or 'update' operations
+            //),
+        ),        
         'active' => array(
             'boolean' => array(
                 'rule' => array('boolean'),
@@ -135,13 +145,13 @@ class Image extends AppModel {
                 'stopSave' => true,
                 'allowEmpty' => true,
                 'transforms' => array(
-                    'imageSmall' => array(
-                        'method' => 'rezise', // or crop
+                    'small_image' => array(
+                        'method' => 'resize', // or crop
                         'append' => '-small',
                         'overwrite' => true,
                         'self' => false,
-                        'width' => 200,
-                        'height' => 200
+                        'width' => 128,
+                        'height' => 128
                     )
                 ),
                 'transport' => array()
@@ -181,7 +191,7 @@ class Image extends AppModel {
  */ 
     public function beforeSave($options = array()) {
         if (!empty($this->data)) {
-            //die(var_dump($this->data));
+ 
         }
         return true;
     }
@@ -195,15 +205,15 @@ class Image extends AppModel {
     public function beforeUpload($options) {
         try {
             $referencedType = ( $this->data['Image']['referenced_type'] == 'project') ? 'proyectos' : 'concursos';
-            $options['finalPath'] = 'images'. DS . $referencedType . DS . $this->data['Image']['referenced_id'] . DS;
-            $options['uploadDir'] = WWW_ROOT . $options['finalPath'];
-            $options['prepend'] = '-' . $this->data['Image']['type'];
+            $options['finalPath'] =  $referencedType . DS . $this->data['Image']['referenced_id'] . DS;
+            $options['uploadDir'] = WWW_ROOT . 'images'. DS . $options['finalPath'];
+            $options['prepend'] = $this->data['Image']['type'] . '-';
             if (!file_exists($options['uploadDir'])) {           
-                if (!is_writable($options['uploadDir'])) {
-                    throw new Exception(__('Upload fails, the directory ' . $options['uploadDir']  . ' does not exists or is not writable'));
-                }
                 if (!mkdir($options['uploadDir'], 0777, true)) {
                     throw new Exception(__('Can not create the upload directory'));
+                }               
+                if (!is_writable($options['uploadDir'])) {
+                    throw new Exception(__('Upload fails, the directory ' . $options['uploadDir']  . ' does not exists or is not writable'));
                 }
             }
             return $options;
@@ -221,15 +231,15 @@ class Image extends AppModel {
  */ 
     public function beforeTransform($options) {
         try {        
-            $referencedType = ( $this->data['Image']['referenced_type'] == 'project') ? 'proyectos' : 'concursos';         
-            $options['finalPath'] = 'images'. DS . $referencedType . DS . $this->data['Image']['referenced_id'] . DS . 'smalls' . DS;
-            $options['uploadDir'] = WWW_ROOT . $options['finalPath'];
-            if (!file_exists($options['uploadDir'])) {           
-                if (!is_writable($options['uploadDir'])) {
-                    throw new Exception(__('Upload fails, the directory ' . $options['uploadDir']  . ' does not exists or is not writable'));
-                }
+            $referencedType = ( $this->data['Image']['referenced_type'] == 'project') ? 'proyectos' : 'concursos';
+            $options['finalPath'] = $referencedType . DS . $this->data['Image']['referenced_id'] . DS . 'smalls' . DS;
+            $options['uploadDir'] = WWW_ROOT .'images'. DS . $options['finalPath'];
+            if (!file_exists($options['uploadDir'])) {         
                 if (!mkdir($options['uploadDir'], 0777, true)) {
                     throw new Exception(__('Can not create the upload directory'));
+                }
+                if (!is_writable($options['uploadDir'])) {
+                    throw new Exception(__('Upload fails, the directory ' . $options['uploadDir']  . ' does not exists or is not writable'));
                 }
             }
             return $options;
@@ -238,4 +248,30 @@ class Image extends AppModel {
             $this->log($e->getMessage(), 'debug');            
         }
     }
+/**
+ * Callback para antes de eliminar un registro.
+ * Elimina las imagenes del disco, asociadas al registro que se desea eliminar
+ * 
+ * @param bool $cascade
+ * @return bool
+ */     
+    public function beforeDelete($cascade = false) {
+        
+        $filepath = $this->find('first', array(
+            'fields' => array(
+                'filepath',
+                'small_image'
+            ),
+            'conditions' => array(
+                'Image.id' => $this->id
+            )
+        ));
+        if (file_exists(WWW_ROOT . $filepath['Image']['filepath'])) {
+            unlink(WWW_ROOT . $filepath['Image']['filepath']);
+        }
+        if (file_exists(WWW_ROOT . $filepath['Image']['small_image'])) {
+            unlink(WWW_ROOT . $filepath['Image']['small_image']);
+        }
+        return true;
+    }    
 }

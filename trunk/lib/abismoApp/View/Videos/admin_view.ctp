@@ -20,6 +20,24 @@
             <?php echo h($video['Video']['id']); ?>
             &nbsp;
         </dd>
+        <?php if ($video['Video']['referenced_type'] == 'project'): ?>     
+        <dt><?php echo __('Project'); ?></dt>
+        <dd>
+            <?php echo $this->Html->link($video['Project']['title'], array('controller' => 'projects', 'action' => 'view', $video['Project']['id'])); ?>
+            &nbsp;
+        </dd>
+        <?php else: ?>
+        <dt><?php echo __('Tender'); ?></dt>
+        <dd>
+            <?php echo $this->Html->link($video['Tender']['title'], array('controller' => 'tenders', 'action' => 'view', $video['Tender']['id'])); ?>
+            &nbsp;
+        </dd>        
+        <?php endif; ?>        
+        <dt><?php echo __('Title'); ?></dt>
+        <dd>
+            <?php echo h($video['Video']['title']); ?>
+            &nbsp;
+        </dd>             
         <dt><?php echo __('Embed Code'); ?></dt>
         <dd>
             <?php echo $video['Video']['embed_code']; ?>

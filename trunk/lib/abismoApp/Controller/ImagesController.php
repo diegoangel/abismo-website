@@ -8,7 +8,7 @@ App::uses('AppController', 'Controller');
 class ImagesController extends AppController {
 
     public $layout = 'admin';
-    
+
 /**
  * admin_index method
  *
@@ -88,7 +88,7 @@ class ImagesController extends AppController {
         if (!$this->Image->exists()) {
             throw new NotFoundException(__('Invalid image'));
         }
-        $this->request->onlyAllow('post', 'delete');
+        $this->request->onlyAllow('post', 'delete');       
         if ($this->Image->delete()) {
             $this->Session->setFlash(__('Image deleted'));
             $this->redirect(array('action' => 'index'));

@@ -1,16 +1,28 @@
     <section class="main">
         <div class="slider">
             <div id="galeria">
-                <?php foreach($project['Image'] as $image): ?>
-                <div class="slide">
-                <?php 
-                    echo $this->Html->image(
-                        $image['filepath'], 
-                        array('alt' => $image['alt'], 'width' => '960', 'height' => '410')
-                    ); 
-                ?>
-                </div>  
-                <?php endforeach; ?>
+                <?php if (count($project['Image']) > 0 ): ?>
+                    <?php foreach($project['Image'] as $image): ?>
+                    <div class="slide">
+                    <?php 
+                        echo $this->Html->image(
+                            $image['filepath'], 
+                            array('alt' => $image['alt'], 'width' => '960', 'height' => '410')
+                        ); 
+                    ?>
+                    </div>  
+                    <?php endforeach; ?>  
+                <?php else: ?>
+                    <div class="slide">
+                    <?php 
+                        echo $this->Html->image(
+                            'default-slide.jpg',
+                            array('alt' => 'default', 'width' => '960', 'height' => '410')
+                        ); 
+                    ?>
+                    </div>                                    
+                <?php endif; ?>
+
             </div>
             <div class="title">
                 <h2><?php echo $project['Project']['title'] ?></h2>

@@ -152,7 +152,7 @@ class Tender extends AppModel {
             'foreignKey' => 'referenced_id',
             'dependent' => true,
             'conditions' => array('referenced_type' => 'tender'),
-            'fields' => array('id', 'type', 'filename', 'filepath', 'alt', 'active'),
+            'fields' => array('id', 'type', 'title', 'filepath', 'alt', 'active'),
             'order' => '',
             'limit' => '',
             'offset' => '',

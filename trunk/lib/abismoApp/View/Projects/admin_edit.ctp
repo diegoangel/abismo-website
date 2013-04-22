@@ -24,7 +24,11 @@
             echo $this->Form->input('location');
             echo $this->Form->input('project_idea_and_management');
             echo $this->Form->input('client');
-            echo $this->Form->input('total area');
+            echo $this->Form->input('total area', array(
+                'before' => '<div class="control-group input-append required">',
+                'after' => '<span class="add-on"> m<sup>2</sup></span></div>',
+                'div' => false
+            ));
             echo $this->Form->input('year');
             echo $this->Form->input('proposal');
             echo $this->Form->input('show_in_home');

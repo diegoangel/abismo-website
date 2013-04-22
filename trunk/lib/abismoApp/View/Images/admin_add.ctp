@@ -42,7 +42,7 @@
                 )
             );     
             echo $this->Form->input(
-                'filename', 
+                'title', 
                 array(
                     'autocomplete' => 'off',
                     'label' => __('Title')
@@ -61,7 +61,8 @@
             );
             echo $this->Form->input(
                 'active', 
-                array('label' => __('Active')));
+                array('label' => __('Active'))
+            );
         ?>
         </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>

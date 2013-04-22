@@ -154,7 +154,7 @@ class Project extends AppModel {
             'foreignKey' => 'referenced_id',
             'dependent' => true,
             'conditions' => array('referenced_type' => 'project'),
-            'fields' => array('id', 'type', 'filename', 'filepath', 'alt', 'active'),
+            'fields' => array('id', 'type', 'title', 'filepath', 'alt', 'active'),
             'order' => '',
             'limit' => '',
             'offset' => '',
@@ -197,7 +197,7 @@ class Project extends AppModel {
             $project = $this->find('first', array(
                 'contain' => array(
                     'Image' => array(
-                        'fields' => array('filepath', 'alt'),
+                        'fields' => array('title', 'filepath', 'alt'),
                         'conditions' => array(
                             'type' => 'home', 
                             'active' => true,

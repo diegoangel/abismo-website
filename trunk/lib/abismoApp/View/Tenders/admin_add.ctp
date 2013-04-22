@@ -22,10 +22,17 @@
         echo $this->Form->input('location');
         echo $this->Form->input('project_idea_and_management');
         echo $this->Form->input('client');
-        echo $this->Form->input('total_area');
+            echo $this->Form->input('total area', array(
+                'before' => '<div class="control-group input-append required">',
+                'after' => '<span class="add-on"> m<sup>2</sup></span></div>',
+                'div' => false
+            ));
         echo $this->Form->input('year');
         echo $this->Form->input('proposal');
-        echo $this->Form->input('featured');
+        echo $this->Form->input('featured', array(
+            'help' => 'Marque esta casilla si desea que el concurso  aparezca en el slider de la pagina de concursos',
+            'after' => ''
+        ));
         echo $this->Form->input('active');
     ?>
     </fieldset>

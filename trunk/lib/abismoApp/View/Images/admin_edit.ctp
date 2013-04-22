@@ -44,7 +44,7 @@
                 )
             );     
             echo $this->Form->input(
-                'filename', 
+                'title', 
                 array(
                     'autocomplete' => 'off',
                     'label' => __('Title')
@@ -72,6 +72,11 @@
 <script type="text/javascript"> 
     $.get('/GetProjectsAndTendersService/getProjectsAndTenders', function(data) {
         data = $.parseJSON(data)
+        for (var j in data) {
+            if (data[j].id == $('#ImageReferencedId').val() && data[j].type == $('#ImageReferencedType').val()) {
+                $('#ImageBelongsToName').val(data[j].title);
+            }
+        }
         $('#ImageBelongsToName').typeahead({
             source: data,
             display: 'title',
