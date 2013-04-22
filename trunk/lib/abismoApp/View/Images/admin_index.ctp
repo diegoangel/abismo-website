@@ -23,9 +23,9 @@
                 <th><?php echo $this->Paginator->sort('id'); ?></th>
                 <th><?php echo $this->Paginator->sort('referenced_type'); ?></th>                
                 <th><?php echo $this->Paginator->sort('title'); ?></th>
+                <th><?php echo $this->Paginator->sort('type'); ?></th>
                 <th><?php echo $this->Paginator->sort('active'); ?></th>
-                <th><?php echo $this->Paginator->sort('created'); ?></th>
-                <th><?php echo $this->Paginator->sort('modified'); ?></th>
+ 
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
         </thead>
@@ -33,11 +33,35 @@
         <?php foreach ($images as $image): ?>
             <tr>
                 <td><?php echo h($image['Image']['id']); ?>&nbsp;</td>
-                <td><?php echo h($image['Image']['referenced_type']); ?>&nbsp;</td>
+                <td>
+                    <?php
+                        switch(h($image['Image']['referenced_type'])) {
+                            case 'project':
+                                echo 'Proyecto';
+                                break;
+                            case 'tender':
+                                echo 'Concurso';
+                                break;
+                        }
+                    ?>
+                &nbsp;</td>
                 <td><?php echo h($image['Image']['title']); ?>&nbsp;</td>
-                <td><?php echo h($image['Image']['active']); ?>&nbsp;</td>
-                <td><?php echo $this->Time->niceShort(h($image['Image']['created'])); ?>&nbsp;</td>
-                <td><?php echo $this->Time->niceShort(h($image['Image']['modified'])); ?>&nbsp;</td>
+                <td>
+                <?php
+                    switch(h($image['Image']['type'])) {
+                        case 'home':
+                            echo 'Home';
+                            break;
+                        case 'slide':
+                            echo 'Destacada';
+                            break;
+                        case 'thumb':
+                            echo 'Thumb';
+                            break;
+                    }
+                ?>
+                &nbsp;</td>
+                <td><?php echo (h($image['Image']['active'])) ? 'Si' : 'No'; ?>&nbsp;</td>
                 <td>
                     <?php echo $this->Html->link(__('View'), array('action' => 'view', $image['Image']['id']), array('class' => 'btn btn-info')); ?>
                 </td>
@@ -59,9 +83,13 @@
         <div class="pagination">
             <ul>
                 <?php echo $this->Paginator->first(); ?>
-                <?php echo $this->Paginator->prev(); ?>
+                <?php if($this->Paginator->hasPrev()): ?>
+                    <?php echo $this->Paginator->prev(); ?>
+                <?php endif; ?>
                 <?php echo $this->Paginator->numbers(); ?>
-                <?php echo $this->Paginator->next(); ?>
+                <?php if($this->Paginator->hasNext()): ?>
+                    <?php echo $this->Paginator->next(); ?>                
+                <?php endif; ?>
                 <?php echo $this->Paginator->last(); ?>
             </ul>
         </div>

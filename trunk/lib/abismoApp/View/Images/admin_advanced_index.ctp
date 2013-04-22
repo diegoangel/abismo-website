@@ -17,12 +17,27 @@
         <h1><?php echo __('Images'); ?></h1>
     </div>
     
+<ul id="source">
+  <li data-id="<?php echo __('Todo')" ?>><?php echo __('Todo') ?></li>
+  <li data-id="<?php echo __('Home')" ?>><?php echo __('Home') ?></li>
+  <li data-id="<?php echo __('Destacada') ?>"><?php echo __('Destacada') ?></li>
+  <li data-id="<?php echo __('Thumb') ?>"><?php echo __('Thumb') ?></li>
+  <li data-id="<?php echo __('Tenders') ?>"><?php echo __('Tenders') ?></li>
+  <li data-id="<?php echo __('Projects') ?>"><?php echo __('Projects') ?></li>
+</ul>
+
+<ul id="destination" class="hidden">
+  <li data-id="macosx">Mac OS X</li>
+  <li data-id="macos9">Mac OS 9</li>
+  <li data-id="iphone">iOS</li>
+</ul>
+    
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th><?php echo $this->Paginator->sort('id'); ?></th>
                 <th><?php echo $this->Paginator->sort('referenced_type'); ?></th>                
-                <th><?php echo $this->Paginator->sort('filename'); ?></th>
+                <th><?php echo $this->Paginator->sort('title'); ?></th>
                 <th><?php echo $this->Paginator->sort('active'); ?></th>
                 <th><?php echo $this->Paginator->sort('created'); ?></th>
                 <th><?php echo $this->Paginator->sort('modified'); ?></th>
@@ -34,10 +49,10 @@
             <tr>
                 <td><?php echo h($image['Image']['id']); ?>&nbsp;</td>
                 <td><?php echo h($image['Image']['referenced_type']); ?>&nbsp;</td>
-                <td><?php echo h($image['Image']['filename']); ?>&nbsp;</td>
+                <td><?php echo h($image['Image']['title']); ?>&nbsp;</td>
                 <td><?php echo h($image['Image']['active']); ?>&nbsp;</td>
-                <td><?php echo h($image['Image']['created']); ?>&nbsp;</td>
-                <td><?php echo h($image['Image']['modified']); ?>&nbsp;</td>
+                <td><?php echo $this->Time->niceShort(h($image['Image']['created'])); ?>&nbsp;</td>
+                <td><?php echo $this->Time->niceShort(h($image['Image']['modified'])); ?>&nbsp;</td>
                 <td>
                     <?php echo $this->Html->link(__('View'), array('action' => 'view', $image['Image']['id']), array('class' => 'btn btn-info')); ?>
                 </td>

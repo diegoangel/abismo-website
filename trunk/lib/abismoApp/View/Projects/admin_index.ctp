@@ -22,11 +22,10 @@
             <tr>
                 <th><?php echo $this->Paginator->sort('id'); ?></th>
                 <th><?php echo $this->Paginator->sort('title'); ?></th>
+                <th><?php echo __('Imagenes'); ?></th>
                 <th><?php echo $this->Paginator->sort('show_in_home'); ?></th>
                 <th><?php echo $this->Paginator->sort('featured'); ?></th>
                 <th><?php echo $this->Paginator->sort('active'); ?></th>
-                <th><?php echo $this->Paginator->sort('created'); ?></th>
-                <th><?php echo $this->Paginator->sort('modified'); ?></th>
                 <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
         </thead>
@@ -35,11 +34,10 @@
             <tr>
                 <td><?php echo h($project['Project']['id']); ?>&nbsp;</td>
                 <td><?php echo h($project['Project']['title']); ?>&nbsp;</td>
-                <td><?php echo h($project['Project']['show_in_home']); ?>&nbsp;</td>
-                <td><?php echo h($project['Project']['featured']); ?>&nbsp;</td>
-                <td><?php echo h($project['Project']['active']); ?>&nbsp;</td>
-                <td><?php echo h($project['Project']['created']); ?>&nbsp;</td>
-                <td><?php echo h($project['Project']['modified']); ?>&nbsp;</td>
+                <td><a href="/admin/images/getByProjectId/<?php echo $project['Project']['id'] ?>">Ver imagenes</a>&nbsp;</td>
+                <td><?php echo (h($project['Project']['show_in_home'])) ? 'Si' : 'No'; ?>&nbsp;</td>
+                <td><?php echo (h($project['Project']['featured'])) ? 'Si' : 'No'; ?>&nbsp;</td>
+                <td><?php echo (h($project['Project']['active'])) ? 'Si' : 'No'; ?>&nbsp;</td>
                 <td>
                     <?php echo $this->Html->link(__('View'), array('action' => 'view', $project['Project']['id']), array('class' => 'btn btn-info')); ?>
                 </td>
@@ -61,9 +59,13 @@
         <div class="pagination">
             <ul>
                 <?php echo $this->Paginator->first(); ?>
-                <?php echo $this->Paginator->prev(); ?>
+                <?php if($this->Paginator->hasPrev()): ?>
+                    <?php echo $this->Paginator->prev(); ?>
+                <?php endif; ?>
                 <?php echo $this->Paginator->numbers(); ?>
-                <?php echo $this->Paginator->next(); ?>
+                <?php if($this->Paginator->hasNext()): ?>
+                    <?php echo $this->Paginator->next(); ?>                
+                <?php endif; ?>
                 <?php echo $this->Paginator->last(); ?>
             </ul>
         </div>

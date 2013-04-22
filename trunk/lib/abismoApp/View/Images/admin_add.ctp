@@ -38,7 +38,7 @@
                     'empty' => 'Seleccione un tipo',
                     'label' => __('Image type'),
                     'after' => '',                    
-                    'help'  => 'Seleccione el tipo de imagen que desea guardar, Home, Destacada o Thumbnail'
+                    'help'  => 'Seleccione el tipo de imagen que desea guardar, Home (se ve en la pagina de inicio), Destacadalle del proyecto (se ve en la pagina de listado de proyectos) o Thumbnail (se ve en la pagina del det)'
                 )
             );     
             echo $this->Form->input(

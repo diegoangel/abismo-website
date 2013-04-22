@@ -29,8 +29,15 @@
             ));
             echo $this->Form->input('year');
             echo $this->Form->input('proposal');
-            echo $this->Form->input('show_in_home');
-            echo $this->Form->input('featured');
+            echo $this->Form->input('show_in_home', array(
+                'label' => __('Mostrar en la pagina de Inicio (Home)'),
+                'after' => '',
+                'help' => 'Seleccione esta opcion si desea mostrar este proyecto en la home de su sitio. Asegurese de subir la imagen correspondiente del tipo "home" para este proyecto'
+            ));
+            echo $this->Form->input('featured', array(
+                'after' => '',
+                'help' => 'Seleccione esta opcion si desea destacar este proyecto y mostrarlo en la pagina de listado de proyectos'
+            ));
             echo $this->Form->input('active');
         ?>
         </fieldset>
