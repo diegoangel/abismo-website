@@ -134,7 +134,16 @@ class Image extends AppModel {
                 'overwrite' => false,
                 'stopSave' => true,
                 'allowEmpty' => true,
-                'transforms' => array(),
+                'transforms' => array(
+                    'imageSmall' => array(
+                        'method' => 'rezise', // or crop
+                        'append' => '-small',
+                        'overwrite' => true,
+                        'self' => false,
+                        'width' => 200,
+                        'height' => 200
+                    )
+                ),
                 'transport' => array()
             )
         ),
@@ -172,8 +181,7 @@ class Image extends AppModel {
  */ 
     public function beforeSave($options = array()) {
         if (!empty($this->data)) {
-            // do something
-            die(var_dump($this->data));
+            //die(var_dump($this->data));
         }
         return true;
     }
@@ -185,23 +193,24 @@ class Image extends AppModel {
  * @return array
  */ 
     public function beforeUpload($options) {
-        $options['finalPath'] = 'image'. DS . $this->data['Image']['referenced_type'] . DS . $this->data['Image']['referenced_id'] . DS;
-        $options['uploadDir'] = WWW_ROOT . $options['finalPath'];
         try {
-            if (!file_exists($options['uploadDir'])) {
+            $referencedType = ( $this->data['Image']['referenced_type'] == 'project') ? 'proyectos' : 'concursos';
+            $options['finalPath'] = 'images'. DS . $referencedType . DS . $this->data['Image']['referenced_id'] . DS;
+            $options['uploadDir'] = WWW_ROOT . $options['finalPath'];
+            $options['prepend'] = '-' . $this->data['Image']['type'];
+            if (!file_exists($options['uploadDir'])) {           
                 if (!is_writable($options['uploadDir'])) {
-                    throw new Exception(__('Upload fails, the directory does not exists or is not writable'));
+                    throw new Exception(__('Upload fails, the directory ' . $options['uploadDir']  . ' does not exists or is not writable'));
                 }
-                if (!mkdir($options['uploadDir'], 0755, true)) {
+                if (!mkdir($options['uploadDir'], 0777, true)) {
                     throw new Exception(__('Can not create the upload directory'));
                 }
             }
+            return $options;
         } catch(Exception $e) {
             throw $e;
             $this->log($e->getMessage(), 'debug');            
         }
-         
-        return $options;
     }
      
 /**
@@ -211,9 +220,22 @@ class Image extends AppModel {
  * @return array
  */ 
     public function beforeTransform($options) {
-        $options['finalPath'] = 'image'. DS . $this->data['Image']['referenced_type'] . DS . $this->data['Image']['referenced_id'] . DS . 'thumbnails' . DS;
-        $options['uploadDir'] = WWW_ROOT . $options['finalPath'];
-     
-        return $options;
+        try {        
+            $referencedType = ( $this->data['Image']['referenced_type'] == 'project') ? 'proyectos' : 'concursos';         
+            $options['finalPath'] = 'images'. DS . $referencedType . DS . $this->data['Image']['referenced_id'] . DS . 'smalls' . DS;
+            $options['uploadDir'] = WWW_ROOT . $options['finalPath'];
+            if (!file_exists($options['uploadDir'])) {           
+                if (!is_writable($options['uploadDir'])) {
+                    throw new Exception(__('Upload fails, the directory ' . $options['uploadDir']  . ' does not exists or is not writable'));
+                }
+                if (!mkdir($options['uploadDir'], 0777, true)) {
+                    throw new Exception(__('Can not create the upload directory'));
+                }
+            }
+            return $options;
+        } catch(Exception $e) {
+            throw $e;
+            $this->log($e->getMessage(), 'debug');            
+        }
     }
 }

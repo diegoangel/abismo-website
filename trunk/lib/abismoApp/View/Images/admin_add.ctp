@@ -24,6 +24,7 @@
                 array(
                     'type' => 'text',
                     'label' => __('Related to ID'),
+                    'autocomplete' => 'off',                    
                     'after' => '',
                     'help' => 'Comience a escribir el nombre del proyecto o concurso al cual desea relacionar la imagen e inmediatamente se desplegara una lista con las coincidencias encontradas.'
                 )
@@ -41,9 +42,15 @@
                 )
             );     
             echo $this->Form->input(
+                'filename', 
+                array(
+                    'autocomplete' => 'off',
+                    'label' => __('Title')
+                )
+            );
+            echo $this->Form->input(
                 'filepath', 
                 array(
-                    'label' => __('Image'), 
                     'type' => 'file',
                     'autocomplete' => 'off'
                 )
