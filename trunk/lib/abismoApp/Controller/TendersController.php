@@ -2,7 +2,9 @@
 App::uses('AppController', 'Controller');
 /**
  * Tenders Controller
- *
+ * 
+ * @package abismo
+ * @subpackage tenders 
  * @property Tender $Tender
  */
 class TendersController extends AppController {

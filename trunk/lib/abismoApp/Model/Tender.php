@@ -3,6 +3,8 @@ App::uses('AppModel', 'Model');
 /**
  * Tender Model
  *
+ * @package abismo
+ * @subpackage tenders
  * @property Image $Image
  * @property Video $Video
  */

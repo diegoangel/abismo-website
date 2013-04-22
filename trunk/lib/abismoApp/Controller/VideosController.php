@@ -2,7 +2,9 @@
 App::uses('AppController', 'Controller');
 /**
  * Videos Controller
- *
+ * 
+ * @package abismo
+ * @subpackage videos
  * @property Video $Video
  */
 class VideosController extends AppController {

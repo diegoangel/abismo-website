@@ -3,6 +3,8 @@ App::uses('AppModel', 'Model');
 /**
  * Project Model
  *
+ * @package abismo
+ * @subpackage projects
  * @property Image $Image
  * @property Video $Video
  */

@@ -2,7 +2,8 @@
 /**
  * Abismo 
  * 
- * @package abismoApp 
+ * @package abismo
+ * @subpackage home
  */ 
 App::uses('AppController', 'Controller');
 
@@ -10,7 +11,6 @@ App::uses('AppController', 'Controller');
  * Home controller
  *
  * @author Leandro Baratucci
- * @subpackage abismoApp.Controller
  */
 class HomeController extends AppController {
 

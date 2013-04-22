@@ -3,6 +3,8 @@ App::uses('AppController', 'Controller');
 /**
  * Projects Controller
  *
+ * @package abismo
+ * @subpackage projects
  * @property Project $Project
  */
 class ProjectsController extends AppController {

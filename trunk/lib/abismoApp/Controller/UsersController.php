@@ -2,7 +2,9 @@
 App::uses('AppController', 'Controller');
 /**
  * Users Controller
- *
+ * 
+ * @package abismo
+ * @subpackage users 
  * @property User $User
  */
 class UsersController extends AppController {

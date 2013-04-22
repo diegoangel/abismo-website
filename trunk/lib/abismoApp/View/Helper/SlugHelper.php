@@ -10,7 +10,7 @@ App::uses('FormHelper', 'View/Helper');
 /**
  * Slug Helper Class
  * 
- * @subpackage abismoApp.View.Helpers
+ * @subpackage view.helpers
  */ 
 class SlugHelper extends AppHelper{
     

@@ -9,8 +9,9 @@ App::uses('AppController', 'Controller');
 /**
  * Studio controller
  *
+ * @package abismo
+ * @subpackage studio
  * @author Leandro Baratucci
- * @subpackage abismoApp.Controller
  */
 class StudioController extends AppController {
 

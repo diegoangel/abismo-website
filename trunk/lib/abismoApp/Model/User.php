@@ -4,7 +4,9 @@ App::uses('AppModel', 'Model');
 
 /**
  * User Model
- *
+ * 
+ * @package abismo
+ * @subpackage users
  */
 class User extends AppModel {
 

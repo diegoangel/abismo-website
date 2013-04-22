@@ -2,7 +2,9 @@
 App::uses('AppController', 'Controller');
 /**
  * Products Controller
- *
+ * 
+ * @package abismo
+ * @subpackage admin
  * @property Product $Product
  * @property RequestHandlerComponent $RequestHandler
  */

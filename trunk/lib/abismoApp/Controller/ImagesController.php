@@ -2,7 +2,9 @@
 App::uses('AppController', 'Controller');
 /**
  * Images Controller
- *
+ * 
+ * @package abismo
+ * @subpackage images
  * @property Image $Image
  */
 class ImagesController extends AppController {

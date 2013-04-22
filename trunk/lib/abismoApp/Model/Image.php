@@ -5,6 +5,8 @@ App::uses('AttachmentBehavior', 'Uploader.Model/Behavior');
 /**
  * Image Model
  *
+ * @package abismo
+ * @subpackage images
  * @property Project $referenced
  * @property Tender $ReferencedTender
  */
