@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
-"POT-Creation-Date: 2013-04-19 16:49-0300\n"
+"POT-Creation-Date: 2013-04-22 12:45-0300\n"
 "PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
 "Last-Translator: NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
@@ -16,10 +16,20 @@ msgstr ""
 
 #: View/Errors/error400.ctp:22
 #: View/Errors/error500.ctp:22
+#: View/Errors/fatal_error.ctp:24
+#: View/Errors/missing_action.ctp:24
+#: View/Errors/missing_controller.ctp:24
+#: View/Errors/missing_view.ctp:24
+#: View/Errors/pdo_error.ctp:24
 msgid "Error"
 msgstr ""
 
 #: View/Errors/error400.ctp:24
+#: View/Errors/fatal_error.ctp:26
+#: View/Errors/missing_action.ctp:26
+#: View/Errors/missing_controller.ctp:26
+#: View/Errors/missing_view.ctp:26
+#: View/Errors/pdo_error.ctp:26
 msgid "The requested address %s was not found on this server."
 msgstr ""
 
@@ -27,6 +37,7 @@ msgstr ""
 msgid "An Internal Error Has Occurred."
 msgstr ""
 
+#: View/Images/admin_advanced_index.ctp:56
 #: View/Images/admin_index.ctp:56
 #: View/Projects/admin_index.ctp:58
 #: View/Tenders/admin_index.ctp:56

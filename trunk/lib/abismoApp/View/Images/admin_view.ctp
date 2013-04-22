@@ -48,6 +48,11 @@
             <?php echo h($image['Image']['title']); ?>
             &nbsp;
         </dd>
+        <dt><?php echo __('Type'); ?></dt>
+        <dd>
+            <?php echo h($image['Image']['type']); ?>
+            &nbsp;
+        </dd>        
         <dt><?php echo __('Filepath'); ?></dt>
         <dd>
         <a href="#myModal" role="button" class="btn" data-toggle="modal">Ver imagen</a>
