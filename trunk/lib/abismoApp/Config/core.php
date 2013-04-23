@@ -20,7 +20,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-require_once dirname(__DIR__) . '/Vendor/autoload.php';
+require_once  dirname(__DIR__) . '/Vendor/autoload.php';
 
 /**
  * CakePHP enviroment mode

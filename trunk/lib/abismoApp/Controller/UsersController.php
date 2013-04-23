@@ -111,6 +111,7 @@ class UsersController extends AppController {
  * @return void
  */
     public function admin_login() {
+        $this->layout = 'admin_login';
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
                 if ($this->Auth->user('is_admin')) {

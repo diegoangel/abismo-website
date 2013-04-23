@@ -60,7 +60,11 @@ class HomeController extends AppController {
  * @return void
  */     
     public function view() {
+        try {
         $project = $this->Project->getRamdom();
         $this->set('project', $project);
+        } catch(Exception $e) {
+            $this->redirect('/oops.html');
+        }
     }
 }

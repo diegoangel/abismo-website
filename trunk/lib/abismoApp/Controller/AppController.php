@@ -12,7 +12,7 @@ class AppController extends Controller {
      * @var array $components
      */
     public $components = array(
-        'DebugKit.Toolbar', // only loads if the enviroment is development
+        //'DebugKit.Toolbar', // only loads if the enviroment is development
         'RequestHandler',
         'Session',
         'Auth' => array(
@@ -81,6 +81,11 @@ class AppController extends Controller {
  * @return void
  */ 
     public function beforeFilter() {
+        if (defined(IN_PRODUCTION)) {
+            if (IN_PRODUCTION != true) {
+                $this->Components->load('DebugKit.Toolbar');
+            }
+        }        
         if ($this->isAdminRequest()) {
             parent::beforeFilter();
             $Folder = new Folder(APP . 'Model');

@@ -106,6 +106,28 @@ if (file_exists(ROOT . 'images/concursos') && is_writable(ROOT . 'images/concurs
             }
         ?>
         </div>
+        <div class="span3">
+          <h2>Test # 5</h2>
+        
+        <?php
+        if (extension_loaded('fileinfo')) {
+                echo '<div class="alert alert-success">la extension FILEINFO esta instalada</div>';
+        } else {
+                echo '<div class="alert">la extension FILEINFO no esta instalada. El script tratara de utilizar automaticamente una alternativa para la subida de imagenes</div>';
+        
+        }
+        ?>
+        </div>
+        <div class="span3">
+          <h2>Test # 6</h2>
+        <?php
+        if (extension_loaded('gettext')) {
+                echo '<div class="alert alert-success">la extension GETTEXT esta instalada</div>';
+        } else {
+                echo '<div class="alert">la extension GETTEXT no esta instalada. La traduccion de los textos en el backend no podra ser posible</div>';
+        
+        }
+        ?>        </div>
       </div>
 
       <hr>
