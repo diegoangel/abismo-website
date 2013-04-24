@@ -80,17 +80,17 @@ if (!defined('ROOT')) {
         <div class="span3">
           <h2>Test # 3</h2>
         <?php
-/**
-* Chequeamos que el directorio lib/abismoApp/tmp tenga permiso de escritura
-* 
-*/ 
-if (file_exists(ROOT . 'images/concursos') && is_writable(ROOT . 'images/concursos')) {
-    echo '<div class="alert alert-success">el directorio images/concursos tiene permisos de escritura</div>';
-} else {
-    echo '<div class="alert alert-error">el directorio images/concursos NO existe o NO tiene permisos de escritura</div>';
-}
-            
-        ?>
+            /**
+            * Chequeamos que el directorio lib/abismoApp/tmp tenga permiso de escritura
+            * 
+            */ 
+            if (file_exists(ROOT . 'images/concursos') && is_writable(ROOT . 'images/concursos')) {
+                echo '<div class="alert alert-success">el directorio images/concursos tiene permisos de escritura</div>';
+            } else {
+                echo '<div class="alert alert-error">el directorio images/concursos NO existe o NO tiene permisos de escritura</div>';
+            }
+                        
+                    ?>
         </div>
         <div class="span3">
           <h2>Test # 4</h2>
@@ -127,7 +127,27 @@ if (file_exists(ROOT . 'images/concursos') && is_writable(ROOT . 'images/concurs
                 echo '<div class="alert">la extension GETTEXT no esta instalada. La traduccion de los textos en el backend no podra ser posible</div>';
         
         }
-        ?>        </div>
+        ?>        
+        </div>
+        <div class="span3">
+          <h2>Test # 7</h2>
+        <?php 
+
+            include_once 'lib/abismoApp/Config/database.php';
+            $db = new DATABASE_CONFIG;
+            
+                if (!$link = mysqli_connect($db->default['host'], $db->default['login'], $db->default['password'], $db->default['database'])) {
+                    echo '<div class="alert alert-error">FALLO la conexion a la base de datos</div>';
+                } else {
+                        echo '<div class="alert alert-success">coneccion a la base de datos exitosa</div>';
+                }
+         ?>
+        </div>        
+        <div class="span3">
+          <h2></h2>
+          &nbsp;
+          <!-- FUTURO TEST AQUI -->
+        </div>
       </div>
 
       <hr>
