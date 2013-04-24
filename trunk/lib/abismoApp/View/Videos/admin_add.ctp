@@ -30,7 +30,7 @@
                 )
             );
             echo $this->Form->input('title');
-            echo $this->Form->input('embed_code');
+            echo $this->Form->input('embed_code', array('style' => 'width:608px'));
             echo $this->Form->input('active');
         ?>
         </fieldset>
