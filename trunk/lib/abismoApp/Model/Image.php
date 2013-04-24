@@ -134,7 +134,7 @@ class Image extends AppModel {
     public $actsAs = array(
         'Uploader.Attachment' => array(
             'filepath' => array(
-                'nameCallback' => '',
+                'nameCallback' => '', // formatFileName
                 'append' => '',
                 'prepend' => '',
                 'tempDir' => '',
