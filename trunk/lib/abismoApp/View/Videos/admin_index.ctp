@@ -31,7 +31,18 @@
         <?php foreach ($videos as $video): ?>
             <tr>
                 <td><?php echo h($video['Video']['id']); ?>&nbsp;</td>
-                <td><?php echo h($video['Video']['referenced_type']); ?>&nbsp;</td>
+                <td>
+                                    <?php
+                        switch(h($video['Video']['referenced_type'])) {
+                            case 'project':
+                                echo 'Proyecto';
+                                break;
+                            case 'tender':
+                                echo 'Concurso';
+                                break;
+                        }
+                    ?>
+                &nbsp;</td>
                 <td><?php echo h($video['Video']['title']); ?>&nbsp;</td>
                 <td><?php echo (h($video['Video']['active'])) ? 'Si' : 'No'; ?>&nbsp;</td>
                 <td>

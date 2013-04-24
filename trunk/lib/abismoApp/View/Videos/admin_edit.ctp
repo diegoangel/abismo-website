@@ -39,8 +39,15 @@
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 
+<?php
+$linkToService =  $this->Html->url(array(
+    'controller' => 'GetProjectsAndTendersService',
+    'action' => 'getProjectsAndTenders',
+    'admin' => false
+));
+?>
 <script type="text/javascript"> 
-    $.get('/GetProjectsAndTendersService/getProjectsAndTenders', function(data) {
+    $.get('<?php echo $linkToService ?>', function(data) {
         data = $.parseJSON(data)
         for (var j in data) {
             if (data[j].id == $('#VideoReferencedId').val() && data[j].type == $('#VideoReferencedType').val()) {

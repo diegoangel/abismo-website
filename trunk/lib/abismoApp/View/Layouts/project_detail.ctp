@@ -24,20 +24,49 @@
     <header>   
         <?php echo $this->element('contact') ?>
         <section class="inner">
-            <h1><a href="/"><img src="/images/abismo-logo.png" alt="ab.ismo || Oficina de arquitectura"></a></h1>
+            <h1>
+            <?php 
+                echo $this->Html->link(
+                    $this->Html->image(
+                        'abismo-logo.png', 
+                        array('alt' => 'ab.ismo || Oficina de arquitectura')
+                    ),
+                    '/home', 
+                    array(
+                        'escape' => false
+                    )
+                ); 
+            ?>                
+            </h1>            
             <?php echo $this->element('nav') ?>
             <nav class="submenu">
                 <ul>
-                    <li><a href="/proyectos" class="all">all work</a></li>
+                    <li>
+                    <?php 
+                        echo $this->Html->link(
+                            'all work',
+                            '/proyectos',
+                            array(
+                                'class' => 'all'
+                            )
+                        ); 
+                    ?>
+                    </li>
                     <li>
                         <?php 
                             if (is_null($pagination['prev'])) { 
                                 $prev = '#';
                             } else {
                                 $prev = '/proyectos/detalle/' . $pagination['prev']['Project']['id'] . '-' . $this->Slug->transform($pagination['prev']['Project']['title']);
+                                echo $this->Html->link(
+                                    'prev project',
+                                    $prev,
+                                    array(
+                                        'rel' => 'prev'
+                                    )
+                                );
                             }
                         ?>
-                        <a rel="prev" href="<?php echo $prev ?>" class="prev">prev project</a>
                     </li>
                     <li>
                         <?php 
@@ -45,9 +74,15 @@
                                 $next = '#';
                             } else {
                                 $next = '/proyectos/detalle/' . $pagination['next']['Project']['id'] . '-' . $this->Slug->transform($pagination['next']['Project']['title']);
+                                echo $this->Html->link(
+                                    'next project',
+                                    $next,
+                                    array(
+                                        'rel' => 'next'
+                                    )
+                                );                                
                             }
                         ?>                        
-                        <a rel="next" href="<?php echo $next ?>" class="next">next project</a>
                     </li>
                 </ul>
             </nav>            

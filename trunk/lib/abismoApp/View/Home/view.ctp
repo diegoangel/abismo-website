@@ -1,5 +1,5 @@
         <div class="imgBg">
-            <?php echo 'images' . DS . $project['Image'][0]['filepath'];
+            <?php
                 if(count($project['Image']) > 0 && file_exists('images' . DS . $project['Image'][0]['filepath'])) {
                     echo $this->Html->link(
                         $this->Html->image(

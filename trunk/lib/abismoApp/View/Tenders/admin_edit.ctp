@@ -41,14 +41,3 @@
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 
-<script type="text/javascript">
-tinyMCE.init({
-        // General options
-        mode : "textareas",
-        theme : "advanced",
-        language : "es",
-        width : "640",
-        height: "280",        
-        convert_urls : false 
-});
-</script> 

@@ -82,12 +82,12 @@
         </dd>
         <dt><?php echo __('Created'); ?></dt>
         <dd>
-            <?php echo h($project['Project']['created']); ?>
+            <?php echo $this->Time->niceShort(h($project['Project']['created'])); ?>
             &nbsp;
         </dd>
         <dt><?php echo __('Modified'); ?></dt>
         <dd>
-            <?php echo h($project['Project']['modified']); ?>
+            <?php echo $this->Time->niceShort(h($project['Project']['modified'])); ?>
             &nbsp;
         </dd>
     </dl>

@@ -38,11 +38,6 @@
             &nbsp;
         </dd>        
         <?php endif; ?>
-        <dt><?php echo __('Referenced Type'); ?></dt>
-        <dd>
-            <?php echo h($image['Image']['referenced_type']); ?>
-            &nbsp;
-        </dd>
         <dt><?php echo __('Title'); ?></dt>
         <dd>
             <?php echo h($image['Image']['title']); ?>

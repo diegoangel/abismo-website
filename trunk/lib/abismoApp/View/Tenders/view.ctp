@@ -2,9 +2,10 @@
     <section class="main">
         <div class="slider">
             <div id="galeria">
+            <?php if (count($tender['Image']) > 0 ): ?>                
                 <?php foreach($tender['Image'] as $image): ?>
                 <div class="slide">
-                <?php 
+                <?php                
                     echo $this->Html->image(
                         $image['filepath'], 
                         array('alt' => $image['alt'], 'width' => '960', 'height' => '410')
@@ -12,6 +13,16 @@
                 ?>
                 </div>  
                 <?php endforeach; ?>
+                <?php else: ?>
+                    <div class="slide">
+                    <?php 
+                        echo $this->Html->image(
+                            'default-slide.jpg',
+                            array('alt' => 'default', 'width' => '960', 'height' => '410')
+                        ); 
+                    ?>
+                    </div>                  
+            <?php endif; ?>                
             </div>
             <div class="title">
                 <h2><?php echo $tender['Tender']['title'] ?></h2>

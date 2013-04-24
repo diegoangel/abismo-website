@@ -24,7 +24,20 @@
     <?php echo $this->element('contact') ?>
     <header>
         <section class="inner">
-            <h1><a href="/"><img src="/images/abismo-logo.png" alt="ab.ismo || Oficina de arquitectura"></a></h1>
+            <h1>
+            <?php 
+                echo $this->Html->link(
+                    $this->Html->image(
+                        'abismo-logo.png', 
+                        array('alt' => 'ab.ismo || Oficina de arquitectura')
+                    ),
+                    '/home', 
+                    array(
+                        'escape' => false
+                    )
+                ); 
+            ?>  
+            </h1>      
             <?php echo $this->element('nav') ?>
         </section>
     </header> 

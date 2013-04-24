@@ -33,7 +33,17 @@
             <tr>
                 <td><?php echo h($tender['Tender']['id']); ?>&nbsp;</td>
                 <td><?php echo h($tender['Tender']['title']); ?>&nbsp;</td>
-                <td><a href="/admin/images/getByTenderId/<?php echo $tender['Tender']['id'] ?>">Ver imagenes</a>&nbsp</td>
+                <td>
+                <?php 
+                    echo $this->Html->link(
+                        'Ver imagenes',
+                        '/admin/images/getByTenderId/' . $tender['Tender']['id'],
+                        array(
+                            'escape' => false
+                        )
+                    ); 
+                ?>                 
+                &nbsp</td>
                 <td><?php echo (h($tender['Tender']['featured'])) ? 'Si' : 'No'; ?>&nbsp;</td>
                 <td><?php echo (h($tender['Tender']['active'])) ? 'Si' : 'No'; ?>&nbsp;</td>
                 <td>

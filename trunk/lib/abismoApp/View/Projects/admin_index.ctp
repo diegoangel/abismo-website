@@ -34,8 +34,16 @@
             <tr>
                 <td><?php echo h($project['Project']['id']); ?>&nbsp;</td>
                 <td><?php echo h($project['Project']['title']); ?>&nbsp;</td>
-                <td><a href="/admin/images/getByProjectId/<?php echo $project['Project']['id'] ?>">Ver imagenes</a>&nbsp;</td>
-                <td><?php echo (h($project['Project']['show_in_home'])) ? 'Si' : 'No'; ?>&nbsp;</td>
+                <td>
+                <?php 
+                    echo $this->Html->link(
+                        'Ver imagenes',
+                        '/admin/images/getByProjectId/' . $project['Project']['id'],
+                        array(
+                            'escape' => false
+                        )
+                    ); 
+                ?>                 <td><?php echo (h($project['Project']['show_in_home'])) ? 'Si' : 'No'; ?>&nbsp;</td>
                 <td><?php echo (h($project['Project']['featured'])) ? 'Si' : 'No'; ?>&nbsp;</td>
                 <td><?php echo (h($project['Project']['active'])) ? 'Si' : 'No'; ?>&nbsp;</td>
                 <td>

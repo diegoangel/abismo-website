@@ -24,11 +24,34 @@
     <header>   
         <?php echo $this->element('contact') ?>
         <section class="inner">
-            <h1><a href="/"><img src="/images/abismo-logo.png" alt="ab.ismo || Oficina de arquitectura"></a></h1>
+            <h1>
+            <?php 
+                echo $this->Html->link(
+                    $this->Html->image(
+                        'abismo-logo.png', 
+                        array('alt' => 'ab.ismo || Oficina de arquitectura')
+                    ),
+                    '/home', 
+                    array(
+                        'escape' => false
+                    )
+                ); 
+            ?>  
+            </h1>    
             <?php echo $this->element('nav') ?>
             <nav class="submenu">
                 <ul>
-                    <li><a href="/tender" class="all">all work</a></li>
+                    <li>
+                    <?php 
+                        echo $this->Html->link(
+                            'all work',
+                            '/concursos',
+                            array(
+                                'class' => 'all'
+                            )
+                        ); 
+                    ?>
+                        </li>
                     <li>
                         <?php 
                             if (is_null($pagination['prev'])) { 

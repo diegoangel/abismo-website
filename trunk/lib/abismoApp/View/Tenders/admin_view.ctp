@@ -76,12 +76,12 @@
         </dd>
         <dt><?php echo __('Created'); ?></dt>
         <dd>
-            <?php echo h($tender['Tender']['created']); ?>
+            <?php echo $this->Time->niceShort(h($tender['Tender']['created'])); ?>
             &nbsp;
         </dd>
         <dt><?php echo __('Modified'); ?></dt>
         <dd>
-            <?php echo h($tender['Tender']['modified']); ?>
+            <?php echo $this->Time->niceShort(h($tender['Tender']['modified'])); ?>
             &nbsp;
         </dd>
     </dl>

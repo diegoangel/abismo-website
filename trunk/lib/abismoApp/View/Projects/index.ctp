@@ -4,14 +4,27 @@
         <div id="galeria">
             <?php foreach($featuredProjects as $project): ?>
             <div class="slide">
-                <a href="/proyectos/detalle/<?php echo $project['Project']['id'] . '-' . $this->Slug->transform($project['Project']['title']) ?>">
-                    <span></span>
-                    <?php 
-                        echo $this->Html->image(
+                <?php 
+                    if (!isset($tender['Image'][0])) {
+                        $tender['Image'][0]['filepath'] = 'default-thumb.jpg';
+                        $tender['Image'][0]['alt'] = 'Default';
+                    }                
+                    echo $this->Html->link(
+                        $this->Html->image(
                             $project['Image'][0]['filepath'], 
-                            array('alt' => $project['Image'][0]['alt'], 'width' => '960', 'height' => '410')
-                        ); 
-                    ?>
+                            array(
+                                'alt' => $project['Image'][0]['alt'], 
+                                'width' => '960', 
+                                'height' => '410'
+                            )
+                        ),
+                        '/proyectos/detalle/'. $project['Project']['id'] . '-' . $this->Slug->transform($project['Project']['title']), 
+                        array(
+                            'escape' => false,
+                        )
+                    ); 
+                ?>                
+                    <span></span>
                 </a>
                 <div>
                     <h2><?php echo $project['Project']['title'] ?></h2>
@@ -31,22 +44,29 @@
         <ul class="listadoProyectos">
             <?php foreach($otherProjects as $project): ?> 
             <li>
-                <a href="/proyectos/detalle/<?php echo $project['Project']['id'] . '-' . $this->Slug->transform($project['Project']['title']) ?>">
-                    <span></span>
-                    <?php
-                        if (!isset($project['Image'][0])) {
-                            $project['Image'][0]['filepath'] = 'default-thumb.jpg';
-                            $project['Image'][0]['alt'] = 'Default';
-                        }
-                        
-                        echo $this->Html->image(
-                            $project['Image'][0]['filepath'], 
-                            array('alt' => $project['Image'][0]['alt'], 'width' => '288', 'height' => '364')
-                        ); 
-                    ?>                    
-                    <h2><?php echo $project['Project']['title'] ?></h2>
-                    <p><?php echo $project['Project']['subtitle'] ?></p>
-                </a>
+                  <?php 
+                    if (!isset($project['Image'][0])) {
+                        $project['Image'][0]['filepath'] = 'default-thumb.jpg';
+                        $project['Image'][0]['alt'] = 'Default';
+                    }
+                    echo $this->Html->link(
+                        $this->Html->image(
+                            $project['Image'][0]['filepath'],                          
+                            array(
+                                'alt' => $project['Image'][0]['alt'], 
+                                'width' => '960', 
+                                'height' => '410'
+                            )
+                        ) . 
+                        '<span></span>' .                  
+                        '<h2>' . $project['Project']['title'] . '</h2>' .
+                        '<p>' . $project['Project']['subtitle'] . '</p>',
+                        '/proyectos/detalle/'. $project['Project']['id'] . '-' . $this->Slug->transform($project['Project']['title']), 
+                        array(
+                            'escape' => false,
+                        )
+                    ); 
+                    ?>
             </li>
             <?php endforeach; ?>
         </ul>

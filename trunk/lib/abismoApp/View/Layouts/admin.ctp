@@ -22,10 +22,23 @@
             echo $this->Html->script('bootstrap/bootstrap.min.js');
             echo $this->Html->script('bootstrap/bootstrap.file-input.js');
             echo $this->Html->script('bootstrap/bootstrap.typeahead.js');
-            echo $this->Html->script('tinymce/jquery.tinymce.js');
-            echo $this->Html->script('tinymce/tiny_mce.js'); 
-            echo $this->fetch('script');            
+            //echo $this->Html->script('tinymce/jquery.tinymce.js');
+            //echo $this->Html->script('tinymce/tiny_mce.js'); 
+            echo $this->Html->script('tinymce/jquery.tinymce.min.js'); 
+            echo $this->Html->script('tinymce/tinymce.min.js'); 
+            echo $this->fetch('script');
         ?>             
+<script type="text/javascript">
+tinyMCE.init({
+    selector: "textarea",
+    plugins: [
+        "advlist autolink lists link image charmap print preview anchor",
+        "searchreplace visualblocks code fullscreen",
+        "insertdatetime media table contextmenu paste"
+    ],
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+});
+</script>        
     </head>
     <body>
         <div class="navbar navbar-fixed-top">
@@ -64,7 +77,7 @@
             <div class="row-fluid">
                 <hr>
                 <div class="pull-right">
-                    <a href="http://www.inimainteractive.com/" class="label">© Inima Interactive</a>
+                    <a href="http://www.inima.com.ar/" class="label">© Inima Interactive</a>
                 </div>
                 <div>
                     <?php //echo str_replace('class="cake-sql-log"', 'class="table table-bordered table-striped"', $this->element('sql_dump')); ?>

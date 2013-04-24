@@ -68,8 +68,15 @@
     <?php echo $this->Form->end(__('Submit')); ?>
 </div>
 
+<?php
+$linkToService =  $this->Html->url(array(
+    'controller' => 'GetProjectsAndTendersService',
+    'action' => 'getProjectsAndTenders',
+    'admin' => false
+));
+?>
 <script type="text/javascript"> 
-    $.get('/GetProjectsAndTendersService/getProjectsAndTenders', function(data) {
+    $.get('<?php echo $linkToService ?>', function(data) {
         data = $.parseJSON(data)
         $('#ImageBelongsToName').typeahead({
             source: data,
