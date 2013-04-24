@@ -16,8 +16,7 @@ class DashboardController extends AppController {
  * @var array
  */
     public $helpers = array(
-        'Js', 
-        'Fancybox.Fancybox'
+        'Js'
     );
     
     public $layout = 'admin';

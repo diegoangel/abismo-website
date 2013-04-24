@@ -96,6 +96,10 @@ class UsersController extends AppController {
         if (!$this->User->exists()) {
             throw new NotFoundException(__('Invalid user'));
         }
+        if ($this->User->find('count') == 1) {
+            $this->Session->setFlash(__('No se puede eliminar al unico usuario existente'));
+            $this->redirect(array('action' => 'index'));
+        }
         $this->request->onlyAllow('post', 'delete');
         if ($this->User->delete()) {
             $this->Session->setFlash(__('User deleted'));

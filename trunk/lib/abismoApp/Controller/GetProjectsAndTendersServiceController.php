@@ -24,7 +24,13 @@ class GetProjectsAndTendersServiceController extends AppController {
         parent::beforeFilter();
         $this->Auth->allow('getProjectsAndTenders');
     }
-    
+/**
+ * Obtiene todos los proyectos y concursos y lretorna la informacion en JSON
+ * para que pueda ser utilizado por aplicaciones javascript en la construccion
+ * de un buscador con sugerencias
+ * 
+ * @return json
+ */     
     public function getProjectsAndTenders() {        
         $this->Tender->recursive = 0;
         $tenders = $this->Tender->find('all', array(
