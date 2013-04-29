@@ -20,10 +20,6 @@
             echo $this->fetch('css');
             echo $this->Html->script('jquery-1.9.1.min.js');
             echo $this->Html->script('bootstrap/bootstrap.min.js');
-            echo $this->Html->script('bootstrap/bootstrap.file-input.js');
-            echo $this->Html->script('bootstrap/bootstrap.typeahead.js');
-            echo $this->Html->script('tinymce/jquery.tinymce.js');
-            echo $this->Html->script('tinymce/tiny_mce.js'); 
             echo $this->fetch('script');            
         ?>             
     </head>

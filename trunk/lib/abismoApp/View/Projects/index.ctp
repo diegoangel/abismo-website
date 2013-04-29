@@ -53,9 +53,7 @@
                         $this->Html->image(
                             $project['Image'][0]['filepath'],                          
                             array(
-                                'alt' => $project['Image'][0]['alt'], 
-                                'width' => '960', 
-                                'height' => '410'
+                                'alt' => $project['Image'][0]['alt']
                             )
                         ) . 
                         '<span></span>' .                  

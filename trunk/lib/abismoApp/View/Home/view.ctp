@@ -1,10 +1,10 @@
         <div class="imgBg">
             <?php
-                if(count($project['Image']) > 0 && file_exists('images' . DS . $project['Image'][0]['filepath'])) {
+                if(isset($project['Image'][0]['filepath'])) {
                     echo $this->Html->link(
                         $this->Html->image(
                             $project['Image'][0]['filepath'], 
-                            array('alt' => $project['Image'][0]['alt'])
+                            array('alt' => $project['Image'][0]['alt'], 'id' => 'imgBg')
                         ), 
                         '/proyectos/detalle/' . $project['Project']['id'] . '-' . $this->Slug->transform($project['Project']['title']),
                         array('escape' => false)
