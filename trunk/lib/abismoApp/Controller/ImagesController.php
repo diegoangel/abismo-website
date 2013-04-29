@@ -26,6 +26,16 @@ class ImagesController extends AppController {
  *
  * @return void
  */
+    public function admin_advancedIndex() {       
+        $this->Image->recursive = 0;
+        $this->set('images', $this->paginate());
+    }
+
+/**
+ * admin_index method
+ *
+ * @return void
+ */
     public function admin_getByProjectId($projectId = null) {       
         $this->Image->recursive = 1;
         $this->paginate = array(
