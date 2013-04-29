@@ -148,13 +148,22 @@ class Image extends AppModel {
                 'allowEmpty' => true,
                 'transforms' => array(
                     'small_image' => array(
-                        'method' => 'resize', // or crop
+                        'method' => 'resize',
                         'append' => '-small',
                         'overwrite' => true,
                         'self' => false,
-                        'width' => 128,
-                        'height' => 128
-                    )
+                        'width' => 260,
+                        'height' => 180
+                    ),
+                    'thumb_image' => array(
+                        'method' => 'crop',
+                        'overwrite' => true,
+                        'self' => false,
+                        'width' => 288,
+                        'height' => 364,
+                        'quality' => 100,
+                        'location' => 'center'
+                    )                    
                 ),
                 'transport' => array()
             )
@@ -228,13 +237,20 @@ class Image extends AppModel {
 /**
  * Callback ejecutado antes de cualquier transformacion (resize, crop, etc) de la imagen
  * 
+ * @TODO eliminar imagenes innecesarias como las que sera el crop de las del tipo home y slide...
  * @param array $options
  * @return array
  */ 
     public function beforeTransform($options) {
-        try {        
+        try {   
             $referencedType = ( $this->data['Image']['referenced_type'] == 'project') ? 'proyectos' : 'concursos';
-            $options['finalPath'] = $referencedType . DS . $this->data['Image']['referenced_id'] . DS . 'smalls' . DS;
+  
+            if ($this->data['Image']['type'] == 'thumb' && $options['method'] == 'crop') {
+                $options['self'] = true;
+                $options['finalPath'] = $referencedType . DS . $this->data['Image']['referenced_id'] . DS;
+            } elseif($options['dbColumn'] == 'small_image') {
+                $options['finalPath'] = $referencedType . DS . $this->data['Image']['referenced_id'] . DS . 'smalls' . DS;
+            }
             $options['uploadDir'] = WWW_ROOT .'images'. DS . $options['finalPath'];
             if (!file_exists($options['uploadDir'])) {         
                 if (!mkdir($options['uploadDir'], 0777, true)) {
