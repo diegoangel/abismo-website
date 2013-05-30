@@ -22,7 +22,10 @@
 	"support": {
 		"source": "https://github.com/milesj/Uploader"
 	},
-    "config": {
-        "vendor-dir": "Vendor"
-    }
+        "config": {
+            "vendor-dir": "Vendor"
+        },
+        "autoload": {
+	    "classmap": ["Vendor/mjohnson/transit/src/"]
+        }    
 }

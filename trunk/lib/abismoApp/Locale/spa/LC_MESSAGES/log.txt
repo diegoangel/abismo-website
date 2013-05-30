@@ -1,2 +1,0 @@
-04:51:54 PM: /home/diego/Public/test/abismo/lib/abismoApp/Locale/spa/LC_MESSAGES/default.po:5: invalid nplurals value
-04:51:54 PM: msgfmt: found 2 fatal errors
