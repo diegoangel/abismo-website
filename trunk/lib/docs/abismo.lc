@@ -1,0 +1,19 @@
+<VirtualHost *:80>
+	ServerAdmin diegoangel77@gmail.com
+	ServerName abismo.lc
+	ServerAlias www.abismo.lc
+	DocumentRoot /home/diego/Public/test/abismo
+
+	<Directory /home/diego/Public/test/abismo>
+		Options Indexes FollowSymLinks MultiViews
+		AllowOverride All 
+		Order allow,deny
+		allow from all
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/abismo_error.log
+
+	LogLevel warn
+
+	CustomLog ${APACHE_LOG_DIR}/abismo_access.log combined
+</VirtualHost>
