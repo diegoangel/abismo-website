@@ -1,0 +1,14 @@
+****FTP****
+url: http://www.inima.com.ar/abismo/site/
+host: ftp.inima.com.ar
+user: ftpcoma@inima.com.ar
+pass: l34ndr00
+**********
+ 
+****DB****
+Panel db: https://s65723.gridserver.com/.tools/phpMyAdmin/current/
+Nombre db: db65723_coma
+user: db65723_coma
+pass: l34ndr00
+host: internal-db.s65723.gridserver.com
+**********
