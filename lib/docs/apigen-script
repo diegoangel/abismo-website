@@ -1,0 +1,1 @@
+apigen -s ~/Public/test/abismo/lib/abismoApp/ -d ~/Public/test/abismo/lib/abismoApp/docs --exclude *Test* --exclude *Console* --skip-doc-path ~/Public/test/abismo/lib/abismoApp/Vendor --skip-doc-path ~/Public/test/abismo/lib/abismoApp/Plugin/ --exclude *tmp*

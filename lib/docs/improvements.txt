@@ -1,0 +1,7 @@
+1- Agregar los proyectos destacados que también aparezcan en la parte de abajo (más allá de estar Destacados). http://inima.com.ar/abismo/site/proyectos
+
+2- Admin: que las imágenes se vean directamente con un thumb donde esta la opción "VER" y que digan de que proyecto es (ahora ta vacío)
+
+3- Admin: Necesitamos poder cambiar el órden en los proyectos, concursos y de las imágenes. Sino estámos atados a tener que borrar todo para poder modificar el orden y no es lo ideal.
+
+4- Posibilidad de cargar una imagen en el home con la posibilidad de que tenga o no link a un concurso o proyecto.
